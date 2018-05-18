@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>kkren&#39;s blog</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://kkren.me/"/>
+  <updated>2018-05-13T13:30:58.454Z</updated>
+  <id>https://kkren.me/</id>
+  
+  <author>
+    <name>kkren</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://kkren.me/2018/05/13/hello-world/"/>
+    <id>https://kkren.me/2018/05/13/hello-world/</id>
+    <published>2018-05-13T12:18:45.148Z</published>
+    <updated>2018-05-13T13:30:58.454Z</updated>
+    
+    <content type="html"><![CDATA[<p>在咕咕咕了很久很久以后，这个破博客又上线了。以前的文章什么都没有了，反正也没几篇。以后写的bug都会放在这里</p><p>2018年5月13日</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在咕咕咕了很久很久以后，这个破博客又上线了。以前的文章什么都没有了，反正也没几篇。以后写的bug都会放在这里&lt;/p&gt;
+&lt;p&gt;2018年5月13日&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
