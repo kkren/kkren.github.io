@@ -622,8 +622,8 @@ pre,
   margin: 20px 0;
   padding: 0;
   font-size: 14px;
-  color: #4d4d4c;
-  background: #f7f7f7;
+  color: #c5c8c6;
+  background: #1d1f21;
   line-height: 1.6;
 }
 pre,
@@ -643,7 +643,7 @@ pre {
 }
 pre code {
   padding: 0;
-  color: #4d4d4c;
+  color: #c5c8c6;
   background: none;
   text-shadow: none;
 }
@@ -666,7 +666,7 @@ pre code {
 }
 .highlight figcaption {
   font-size: 1em;
-  color: #4d4d4c;
+  color: #c5c8c6;
   line-height: 1em;
   margin-bottom: 1em;
   margin: 0em;
@@ -684,23 +684,23 @@ pre code {
 }
 .highlight figcaption a {
   float: right;
-  color: #4d4d4c;
+  color: #c5c8c6;
 }
 .highlight figcaption a:hover {
-  border-bottom-color: #4d4d4c;
+  border-bottom-color: #c5c8c6;
 }
 .highlight .gutter pre {
   padding-left: 10px;
   padding-right: 10px;
-  color: #869194;
+  color: #888f96;
   text-align: right;
-  background-color: #eff2f3;
+  background-color: #000;
 }
 .highlight .code pre {
   width: 100%;
   padding-left: 10px;
   padding-right: 10px;
-  background-color: #f7f7f7;
+  background-color: #1d1f21;
 }
 .highlight .line {
   height: 20px;
@@ -718,16 +718,16 @@ pre code {
   border: none;
 }
 pre .deletion {
-  background: #fdd;
+  background: #008000;
 }
 pre .addition {
-  background: #dfd;
+  background: #800000;
 }
 pre .meta {
-  color: #8959a8;
+  color: #b294bb;
 }
 pre .comment {
-  color: #8e908c;
+  color: #969896;
 }
 pre .variable,
 pre .attribute,
@@ -741,7 +741,7 @@ pre .html .doctype,
 pre .css .id,
 pre .css .class,
 pre .css .pseudo {
-  color: #c82829;
+  color: #c66;
 }
 pre .number,
 pre .preprocessor,
@@ -750,7 +750,7 @@ pre .literal,
 pre .params,
 pre .constant,
 pre .command {
-  color: #f5871f;
+  color: #de935f;
 }
 pre .ruby .class .title,
 pre .css .rules .attribute,
@@ -763,11 +763,11 @@ pre .xml .cdata,
 pre .special,
 pre .number,
 pre .formula {
-  color: #718c00;
+  color: #b5bd68;
 }
 pre .title,
 pre .css .hexcolor {
-  color: #3e999f;
+  color: #8abeb7;
 }
 pre .function,
 pre .python .decorator,
@@ -777,11 +777,11 @@ pre .ruby .title .keyword,
 pre .perl .sub,
 pre .javascript .title,
 pre .coffeescript .title {
-  color: #4271ae;
+  color: #81a2be;
 }
 pre .keyword,
 pre .javascript .function {
-  color: #8959a8;
+  color: #b294bb;
 }
 .full-image.full-image.full-image.full-image {
   border: none;
@@ -1985,7 +1985,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #f19061;
+  background: #39ba37;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3314,7 +3314,7 @@ ul.breadcrumb li+li:last-child {
                 
               
 
-              <time title="创建时间：2018-05-26 20:43:10 / 修改时间：21:43:07" itemprop="dateCreated datePublished" datetime="2018-05-26T20:43:10+08:00">2018-05-26</time>
+              <time title="创建时间：2018-05-26 20:43:10 / 修改时间：21:49:11" itemprop="dateCreated datePublished" datetime="2018-05-26T20:43:10+08:00">2018-05-26</time>
             
 
             
@@ -3353,81 +3353,14 @@ ul.breadcrumb li+li:last-child {
 
       
         
-          
-            <p>现在在linux服务器上部署的pt下载器主要是aria2, transmission和rtorrent，然而aria2要下载pt的话还需要伪装客户端，rtorrent的webui太丑加载速度还很慢，于是最后选择了transmission。博客中提到的服务器的配置为Intel Atom N2800 2c/4 t 1.86GHz,4Gb DDR3 1066,2T HDD, 位于欧洲，不抗投诉。</p>
-<h2 id="安装transmission与deamon"><a href="#安装transmission与deamon" class="headerlink" title="安装transmission与deamon"></a>安装transmission与deamon</h2><p>服务器的系统环境是debian9, 所以可以很方便用包管理器安装需要的软件</p>
-<pre><code>apt -y install transmission transmission-deamon
-systemctl enable transmission-deamon
-</code></pre><p>好像没有什么特别的配置要配置的，反正webui里都可以改</p>
-<h2 id="安装修改版的transmission-webui"><a href="#安装修改版的transmission-webui" class="headerlink" title="安装修改版的transmission webui"></a>安装修改版的transmission webui</h2><p><a href="https://github.com/ronggang/transmission-web-control" target="_blank" rel="noopener">项目地址</a>，安装过程也是全自动的</p>
-<pre><code>wget https://github.com/ronggang/transmission-web-control/raw/master/release/install-tr-control.sh
-bash install-tr-control.sh
-</code></pre><p>接下来输入1然后按回车就可以了<br>然后重启下transmission</p>
-<pre><code>systemctl restart transmission-deamon
-</code></pre><h2 id="使用nginx-反代webui"><a href="#使用nginx-反代webui" class="headerlink" title="使用nginx 反代webui"></a>使用nginx 反代webui</h2><p>transmission的webui没有ssl也没法加密码，所以用nginx反代下，性能更高。我安装的nginx是来自<a href="https://sb.sb/blog/debian-install-nginx-php-mysql/" target="_blank" rel="noopener">烧饼博客上的教程</a>，下面是配置文件</p>
-<pre><code>server {
-listen 80 default_server;
-listen [::]:80 default_server;
-server_name example.com;
-
-location /.well-known/acme-challenge {
-root /var/www/letsencrypt;
-}
-
-location / {
-return 301 https://$host$request_uri;
-}
-}
-server {
-listen 443 ssl http2 default_server;
-listen [::]:443 ssl http2 default_server;
-
-server_name example.com;
-client_max_body_size 10m;
-server_tokens off;
-
-root /var/www/rutorrent;
-index index.html index.htm index.php;
-
-ssl_dhparam /etc/nginx/ssl/dhparam.pem;
-
-ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-ssl_ciphers 'ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES256-SHA:ECDHE-ECDSA-DES-CBC3-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:DES-CBC3-SHA:!DSS';
-ssl_prefer_server_ciphers on;
-
-ssl_session_cache shared:SSL:50m;
-ssl_session_timeout 1d;
-
-
-ssl_certificate /etc/nginx/ssl/fullchain.cer;
-ssl_certificate_key /etc/nginx/ssl/dl.key;
-
-
-add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload";
-add_header X-Frame-Options SAMEORIGIN;
-add_header X-Content-Type-Options nosniff;
-add_header X-XSS-Protection "1; mode=block";
-
-location / {
-auth_basic "Restricted";
-auth_basic_user_file /etc/nginx/passwd;
-proxy_pass  http://127.0.0.1:9091;
-}
-
-
-
-location ~ \.php$ {
-fastcgi_pass unix:/run/php/php7.2-fpm.sock;
-include snippets/fastcgi-php.conf;
-}
-
-access_log /var/log/nginx/rutorrent.access.log;
-error_log /var/log/nginx/rutorrent.error.log;
-}
-</code></pre><p>其中，<code>/etc/nginx/passwd</code>的生成方法是<code>printf "user:$(openssl passwd -crypt password)\n" &gt;&gt; /etc/nginx/passwd</code>。</p>
-<h2 id="最后的效果"><a href="#最后的效果" class="headerlink" title="最后的效果"></a>最后的效果</h2><p><img src="https://i.loli.net/2018/05/26/5b09643a7d446.png" alt="Snipaste_2018-05-26_21-32-05.png"><br>真香</p>
-
-          
+          <p>现在在linux服务器上部署的pt下载器主要是aria2， transmission和rtorrent，然而aria2要下载pt的话还需要伪装客户端，rtorrent的webui太丑加载速度还很慢，于是最后选择了transmission。博客中提到的服务器的配置为Intel Atom N2800 2c/4 t 1.86GHz，4Gb DDR3 1066，2T HDD， 位于欧洲，不抗投诉。
+          <!--noindex-->
+          </p><div class="post-button text-center">
+            <a class="btn" href="/2018/05/26/使用transmission在linux上搭建pt下载环境/#more" rel="contents">
+              阅读全文 »
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -3565,10 +3498,17 @@ error_log /var/log/nginx/rutorrent.error.log;
       
         
           
-            <p>在咕咕咕了很久很久以后，这个破博客又上线了。以前的文章什么都没有了，反正也没几篇。以后写的bug都会放在这里</p>
-<p>2018年5月13日</p>
+          在咕咕咕了很久很久以后，这个破博客又上线了。以前的文章什么都没有了，反正也没几篇。以后写的bug都会放在这里
+2018年5月13日
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/13/hello-world/#more" rel="contents">
+              阅读全文 »
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -3691,7 +3631,7 @@ error_log /var/log/nginx/rutorrent.error.log;
           
             <div class="cc-license motion-element" itemprop="license">
               <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
-                <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/images/cc-by-nc-sa.svg" alt="Creative Commons">
               </a>
             </div>
           
@@ -4253,4 +4193,4 @@ error_log /var/log/nginx/rutorrent.error.log;
       if (shouldDismissSearchPopup) {
         onPopupClose();
       }
-    });;pangu.spacingPage();</script></body></html>
+    });;pangu.spacingPage();;!function(o){var i=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function c(t,e){var n=new Image,o=t.getAttribute("data-original");n.onload=function(){t.src=o,e&&e()},n.src=o}function n(){for(var t=0;t<i.length;t++)e=i[t],void 0,0<=(n=e.getBoundingClientRect()).top&&0<=n.left&&n.top<=(o.innerHeight||document.documentElement.clientHeight)&&c(i[t],function(){i.splice(t,t)});var e,n;console.log("trigger")}n(),o.addEventListener("scroll",function(){var t,e;t=n,e=o,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body></html>
