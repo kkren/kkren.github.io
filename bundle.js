@@ -93,7 +93,7 @@ NexT.utils = NexT.$u = {
     var THRESHOLD = 50;
     var $top = $('.back-to-top');
 
-    $(window).on('scroll', function() {
+    function initBackToTop() {
       $top.toggleClass('back-to-top-on', window.pageYOffset > THRESHOLD);
 
       var scrollTop = $(window).scrollTop();
@@ -102,6 +102,15 @@ NexT.utils = NexT.$u = {
       var scrollPercentRounded = Math.round(scrollPercent * 100);
       var scrollPercentMaxed = scrollPercentRounded > 100 ? 100 : scrollPercentRounded;
       $('#scrollpercent>span').html(scrollPercentMaxed);
+    }
+
+    // For init back to top in sidebar if page was scrolled after page refresh.
+    $(window).on('load', function() {
+      initBackToTop();
+    });
+
+    $(window).on('scroll', function() {
+      initBackToTop();
     });
 
     $top.on('click', function() {
@@ -257,8 +266,9 @@ NexT.utils = NexT.$u = {
     var sidebarNavHeight = $('.sidebar-nav').css('display') === 'block' ? $('.sidebar-nav').outerHeight(true) : 0;
     var sidebarInner = $('.sidebar-inner');
     var sidebarPadding = sidebarInner.innerWidth() - sidebarInner.width();
+    var sidebarOffset = CONFIG.sidebar.offset ? CONFIG.sidebar.offset : 12;
     var sidebarSchemePadding = this.isPisces() || this.isGemini()
-      ? (sidebarPadding * 2) + sidebarNavHeight + (CONFIG.sidebar.offset * 2) + this.getSidebarb2tHeight()
+      ? (sidebarPadding * 2) + sidebarNavHeight + sidebarOffset + this.getSidebarb2tHeight()
       : (sidebarPadding * 2) + (sidebarNavHeight / 2);
     return sidebarSchemePadding;
   }
@@ -476,7 +486,7 @@ $(document).ready(function() {
       this.sidebarEl.trigger('sidebar.isHiding');
 
       // Prevent adding TOC to Overview if Overview was selected when close & open sidebar.
-      if (!$('.post-toc-wrap')) {
+      if ($('.post-toc-wrap')) {
         if ($('.site-overview-wrap').css('display') === 'block') {
           $('.post-toc-wrap').removeClass('motion-element');
         } else {
@@ -805,9 +815,10 @@ $(document).ready(function() {
 }(jQuery));;$(document).ready(function() {
 
   var sidebarInner = $('.sidebar-inner');
+  var sidebarOffset = CONFIG.sidebar.offset ? CONFIG.sidebar.offset : 12;
 
   function getHeaderOffset() {
-    return $('.header-inner').height() + CONFIG.sidebar.offset;
+    return $('.header-inner').height() + sidebarOffset;
   }
 
   function getFooterOffset() {
@@ -815,10 +826,6 @@ $(document).ready(function() {
     var footerMargin = footerInner.outerHeight(true) - footerInner.outerHeight();
     var footerOffset = footerInner.outerHeight(true) + footerMargin;
     return footerOffset;
-  }
-
-  function setSidebarMarginTop(headerOffset) {
-    return $('#sidebar').css({ 'margin-top': headerOffset });
   }
 
   function initAffix() {
@@ -831,13 +838,14 @@ $(document).ready(function() {
     if (headerOffset + sidebarHeight < contentHeight) {
       sidebarInner.affix({
         offset: {
-          top   : headerOffset - CONFIG.sidebar.offset,
+          top   : headerOffset - sidebarOffset,
           bottom: footerOffset
         }
       });
+      sidebarInner.affix('checkPosition');
     }
 
-    setSidebarMarginTop(headerOffset).css({ 'margin-left': 'initial' });
+    $('#sidebar').css({ 'margin-top': headerOffset, 'margin-left': 'initial' });
   }
 
   function recalculateAffixPosition() {
@@ -847,7 +855,7 @@ $(document).ready(function() {
   }
 
   function resizeListener() {
-    var mql = window.matchMedia('(min-width: 991px)');
+    var mql = window.matchMedia('(min-width: 992px)');
     mql.addListener(function(e) {
       if (e.matches) {
         recalculateAffixPosition();
@@ -857,7 +865,6 @@ $(document).ready(function() {
 
   initAffix();
   resizeListener();
-
 });;(function($) {
   'use strict';
 
