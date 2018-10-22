@@ -103,12 +103,12 @@
 <meta property="og:site_name" content="kkren's blog">
 <meta property="og:description" content="现在在linux服务器上部署的pt下载器主要是aria2， transmission和rtorrent，然而aria2要下载pt的话还需要伪装客户端，rtorrent的webui太丑加载速度还很慢，于是最后选择了transmission。博客中提到的服务器的配置为Intel Atom N2800 2c/4 t 1.86GHz，4Gb DDR3 1066，2T HDD， 位于欧洲，不抗投诉。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://kkren.me/images/1540133454051.png">
-<meta property="og:updated_time" content="2018-10-21T14:53:38.552Z">
+<meta property="og:image" content="https://kkren.me/js/lazyload-plugin/loading.svg">
+<meta property="og:updated_time" content="2018-10-22T10:27:02.511Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用transmission在linux上搭建pt下载环境">
 <meta name="twitter:description" content="现在在linux服务器上部署的pt下载器主要是aria2， transmission和rtorrent，然而aria2要下载pt的话还需要伪装客户端，rtorrent的webui太丑加载速度还很慢，于是最后选择了transmission。博客中提到的服务器的配置为Intel Atom N2800 2c/4 t 1.86GHz，4Gb DDR3 1066，2T HDD， 位于欧洲，不抗投诉。">
-<meta name="twitter:image" content="https://kkren.me/images/1540133454051.png">
+<meta name="twitter:image" content="https://kkren.me/js/lazyload-plugin/loading.svg">
 
 
   
@@ -2003,7 +2003,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #66f2fc;
+  background: #6ee553;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3272,13 +3272,13 @@ ul.breadcrumb li+li:last-child {
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://kkren.me/2018/05/transmission-in-linux/">
 
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kkren">
       <meta itemprop="description" content="kkren写bug的地方">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="kkren's blog">
     </span>
 
@@ -3329,7 +3329,7 @@ ul.breadcrumb li+li:last-child {
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-21 22:53:38" itemprop="dateModified" datetime="2018-10-21T22:53:38+08:00">2018-10-21</time>
+                <time title="修改时间：2018-10-22 18:27:02" itemprop="dateModified" datetime="2018-10-22T18:27:02+08:00">2018-10-22</time>
               
             
           </span>
@@ -3356,7 +3356,7 @@ ul.breadcrumb li+li:last-child {
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2.8k</span>
+                <span title="本文字数">2.7k</span>
               
 
               
@@ -3370,7 +3370,7 @@ ul.breadcrumb li+li:last-child {
                 
                   <span class="post-meta-item-text">阅读时长 ≈</span>
                 
-                <span title="阅读时长">3 分钟</span>
+                <span title="阅读时长">2 分钟</span>
               
             </div>
           
@@ -3460,8 +3460,8 @@ include snippets/fastcgi-php.conf;
 access_log /var/log/nginx/rutorrent.access.log;
 error_log /var/log/nginx/rutorrent.error.log;
 }
-</code></pre><p>其中，<code>/etc/nginx/passwd</code>的生成方法是<code>printf "user:$(openssl passwd -crypt password)\n" &gt;&gt; /etc/nginx/passwd</code>。</p>
-<h2 id="最后的效果"><a href="#最后的效果" class="headerlink" title="最后的效果"></a>最后的效果</h2><p><img src="https://kkren.me/images/1540133454051.png" alt="1540133454051"></p>
+</code></pre><p>其中，<code>/etc/nginx/passwd</code>的生成方法是<code>printf "user:$(openssl passwd -crypt password)\n" >> /etc/nginx/passwd</code>。</p>
+<h2 id="最后的效果"><a href="#最后的效果" class="headerlink" title="最后的效果"></a>最后的效果</h2><p></p><div class="progress-images" style="width:1920px"><div class="progress-images--placeholder" style="padding-bottom: 49.166666666666664%;"></div><img src="/js/lazyload-plugin/loading.svg" alt="1540133454051" class="progress-images--original" data-original="https://i.loli.net/2018/10/22/5bcda5ea4387b.jpg" data-thumb="\images\thumb\f09c22d45ad98d622ef5ad628307c401.jpg"></div><p></p>
 <p>真香</p>
 
       
@@ -4270,4 +4270,4 @@ error_log /var/log/nginx/rutorrent.error.log;
       if (shouldDismissSearchPopup) {
         onPopupClose();
       }
-    });;pangu.spacingPage();</script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
+    });;pangu.spacingPage();</script><script type="text/javascript" charset="utf-8" src="/js/lazyload-plugin/lazyload.intersectionObserver.min.js"></script><script async>window.onload=function(){var a=document.createElement('script'),b=document.getElementsByTagName('script')[0];a.type='text/javascript',a.async=!0,a.src='/sw-register.js?v='+Date.now(),b.parentNode.insertBefore(a,b)};</script></body></html>
