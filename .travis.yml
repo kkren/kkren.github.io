@@ -7,16 +7,13 @@ cache:
   directories:
   - node_modules
 before_install:
-# 安装hexo-cli
 - npm install -g hexo-cli
 install:
-# 安装依赖包
 - sudo apt-get update
 - sudo apt-get install -y graphicsmagick
 - npm install
 script:
 - hexo g
-
 after_script:
 - git clone https://${GH_REF} .deploy_git
 - cd .deploy_git
@@ -25,10 +22,11 @@ after_script:
 - mv .deploy_git/.git/ ./public/
 - cd ./public
 - git config --global user.email "i@kkren.me"
-- git config --global user.name "kkren" 
+- git config --global user.name "kkren"
 - git add .
 - git commit -m "Travis CI Auto Builder"
 - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
 env:
-    global:
-        - GH_REF: github.com/kkren/kkren.github.io.git 
+  global:
+  - GH_REF: github.com/kkren/kkren.github.io.git
+  - secure: mx6YTiGRZif0+ma0py6sPLKKyY8UWZAwW19KH8H2u0xgCxjDtvimfzerJGGlT1IoIzHKPxsYdyhFb6avmzWBgR8P7nZQYbLjuwklRaij1Z5Xe2e76+VNCCzo/ll8HVnbqOWqosZF8IMIdPKFXm89PVmdW+Str+9KmNgUhfG7/kVoVJN9jCh3uNF7uOUrHP9+/JuCGrEZo5Kq9LfeofvylXBY/YC7WnChxZ+tNkqf/lYLuSl2tWe1R/0saDfHyqSRGnMgyiz1k/NYMJTrbpo91SiaSZ/4B35DyRF8GtfSivDxGbb+iS9ZNsuGdixOoZZ25xJw9JUNarK/vLM9Sod7Ijhf7dVEXz8o5t9Y5t+4Y6wAaKnHt/1IjD0iij2ScTTOSosnAMNo0Mq3QcwMXOqx20jq5EF0Ag08DS0I8alJ7U5OZV0vziiCSYVDRjQIRY/x9LpCU74W3/CCykCjZUSrOtdbPbjrET2LSUJ6PynWkzpNIG7ilOy33Skyq/cRsbndeWWd6AiR6X9xqeggzrxJrC753POuxgV0ESiUaMFWRzNIyRYzbSR0rOxQHwQkMJehYVGjqeWqGsanfM6YOIOUXHwO8c2m3TF18in8i0mZYMaFwoEskpo3I4bbvo0a97DIYGCP0GIdz+IHAgzIN1CUJQEeIcXoYOc59452p2P8xXw=
