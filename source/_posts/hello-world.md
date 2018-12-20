@@ -1,7 +1,5 @@
 ---
 title: Hello World
-date: 2018-05-13 12:00:00
-tags:
 urlname: hello-world
 ---
 
