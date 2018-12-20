@@ -16,12 +16,19 @@ install:
 - npm install
 script:
 - hexo g
-after_success:
-- cd ./public # Hexo 生成的目录默认在 public 下
-- git init # 初始化一个 Repo
-- git config --global push.default matching
+
+after_script:
+- git clone https://${GH_REF} .deploy_git
+- cd .deploy_git
+- git checkout master
+- cd ../
+- mv .deploy_git/.git/ ./public/
+- cd ./public
 - git config --global user.email "i@kkren.me"
 - git config --global user.name "kkren" 
-- git add --all .
-- git commit -m "Auto Builder of kkren's Blog" # commit 信息
-- git push --quiet --force https://${GH_TOKEN}@github.com/kkren/kkren.github.io.git master # 将生成的静态整站部署到指定 Repo 的 master 分支。
+- git add .
+- git commit -m "Travis CI Auto Builder"
+- git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+env:
+    global:
+        - GH_REF: github.com/kkren/kkren.github.io.git 

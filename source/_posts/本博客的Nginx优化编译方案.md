@@ -1,7 +1,7 @@
 ---
 title: 本博客的Nginx优化编译方案
 date: 2018-10-25 19:02:52
-tags:
+tags: 技术
 urlname: nginx-configuration
 ---
 
