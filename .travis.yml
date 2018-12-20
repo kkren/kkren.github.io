@@ -7,24 +7,16 @@ cache:
   directories:
   - node_modules
 before_install:
-# 解密私钥
-- openssl aes-256-cbc -K $encrypted_1fc90f464345_key -iv $encrypted_1fc90f464345_iv -in vps_rsa.enc -out ~/.ssh/vps_rsa -d
-# 修改权限
-- chmod 600 ~/.ssh/vps_rsa
-# 将私钥添加到缓存
-- eval $(ssh-agent)
-- ssh-add ~/.ssh/vps_rsa
-# 生成ssh config 在travis后台配置 $vps_host $vps_port 两个环境变量
-- echo -e "Host vps\n\tHostName $vps_host\n\tPort $vps_port\n\tUser git\n\tStrictHostKeyChecking no\n\tIdentityFile ~/.ssh/vps_rsa\n\tIdentitiesOnly yes" >> ~/.ssh/config
 # 安装hexo-cli
 - npm install -g hexo-cli
 install:
 # 安装依赖包
+- apt-get install imagemagick
 - npm install
 script:
 # 生成静态文件
 - hexo clean
-- hexo generate
+- hexo g
 after_success:
 # push到vps仓库
 - cd ./public
@@ -33,4 +25,4 @@ after_success:
 - git config user.email "i@kkren.me"
 - git add .
 - git commit -m "deploy blog"
-- git push --force --quiet "git@vps:blog.git" master:master
+- git push "git@vps:blog.git" master:master
