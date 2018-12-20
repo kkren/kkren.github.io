@@ -26,6 +26,3 @@ git config --global user.name "kkren" # 利用在环境变量中定义的信息�
 git add --all .
 git commit -m "Auto Builder of kkren's Blog" # commit 信息
 git push --quiet --force https://${GH_TOKEN}@github.com/kkren/kkren.github.io.git master # 将生成的静态整站部署到指定 Repo 的 master 分支。
-branches:
-    only:
-        - hexo
