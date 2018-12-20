@@ -136,3 +136,4 @@ service_worker:
       handler: cacheFirst
       options:
         origin: cdn.jsdelivr.net
+auto_spacing: ture

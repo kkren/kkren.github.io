@@ -9,7 +9,7 @@ urlname: hexo-with-travis
 
 ## 创建 GitHub repo
 
-使用```git clone ```将 repo 下载到本地后，执行```git checkout hexo```创建一个 hexo 分支，然后把原来的 hexo 文件夹全部复制进来。如果你之前曾用 git clone 的方式安装过主题，建议将主题目录里的 .git 文件删除，或者改用 submodule 的方式引用主题项目（不推荐）。
+使用 `git clone` 将 repo 下载到本地后，执行 `git checkout hexo` 创建一个 hexo 分支，然后把原来的 hexo 文件夹全部复制进来。如果你之前曾用 git clone 的方式安装过主题，建议将主题目录里的 .git 文件删除，或者改用 submodule 的方式引用主题项目（不推荐）。
 
 ## 创建 Travis ci 配置
 
@@ -68,18 +68,18 @@ travis encrypt 'GH_TOKEN=< 这里填入你生成的 Token >' --add
 
 ### 需要通过包管理器安装其他依赖
 
-在```npm install```上添加两行：
+在`npm install`上添加两行：
 
 ```yaml
 - sudo apt-get update
 - sudo apt-get install -y package
 ```
 
-```sudo``` 和 ```apt-get update``` 都是必须的
+`sudo` 和 `apt-get update` 都是必须的
 
 ## 接收 webhook
 
-新建一个文件夹保存 webhook.js 和 deploy.sh，在这个文件夹下执行 ```npm install github-webhook-handler```。将以下代码保存到 webhook.js：
+新建一个文件夹保存 webhook.js 和 deploy.sh，在这个文件夹下执行 `npm install github-webhook-handler`。将以下代码保存到 webhook.js：
 
 ```javascript
 var http = require('http')
