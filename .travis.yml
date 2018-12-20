@@ -16,8 +16,6 @@ install:
 - gm -h
 - npm install
 script:
-# 生成静态文件
-- hexo clean
 - hexo g
 after_success:
 cd ./public # Hexo 生成的目录默认在 public 下
