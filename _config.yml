@@ -124,6 +124,7 @@ symbols_count_time:
   time: true
   total_symbols: true
   total_time: true
+  
 # offline config passed to sw-precache.
 service_worker:
   maximumFileSizeToCacheInBytes: 5242880
@@ -136,4 +137,5 @@ service_worker:
       handler: cacheFirst
       options:
         origin: cdn.jsdelivr.net
+
 auto_spacing: ture
