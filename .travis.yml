@@ -13,17 +13,18 @@ install:
 # 安装依赖包
 - sudo apt-get update
 - sudo apt-get install -y imagemagick
+- gm -h
 - npm install
 script:
 # 生成静态文件
 - hexo clean
 - hexo g
 after_success:
-# push到vps仓库
-- cd ./public
-- git init
-- git config user.name "kkren"
-- git config user.email "i@kkren.me"
-- git add .
-- git commit -m "deploy blog"
-- git push "git@vps:blog.git" master:master
+cd ./public # Hexo 生成的目录默认在 public 下
+git init # 初始化一个 Repo
+git config --global push.default matching
+git config --global user.email "i@kkren.me"
+git config --global user.name "kkren" # 利用在环境变量中定义的信息配置 Git
+git add --all .
+git commit -m "Auto Builder of kkren's Blog" # commit 信息
+git push --quiet --force https://${GH_TOKEN}@github.com/kkren/kkren.github.io.git master # 将生成的静态整站部署到指定 Repo 的 master 分支。
