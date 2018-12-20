@@ -49,8 +49,7 @@ env:
         - GH_REF: github.com/username/username.github.io.git 
 ```
 
-GH_TOKEN 需要加密后储存在配置文件中，打开https://github.com/settings/tokens/new创建一个新的 token，按下图配置权限即可：
-![权限配置](https://i.loli.net/2018/12/20/5c1b939e53817.png)
+GH_TOKEN 需要加密后储存在配置文件中，打开 [Github设置]( https://github.com/settings/tokens/new) 创建一个新的 token，按下图配置权限即可：![token](https://i.loli.net/2018/12/20/5c1b939e53817.png)
 
 然后，在安装好 ruby 的环境下，进入到 repo 的目录执行下面的命令，就能把 token 加密后添加到 Travis 配置中。
 
@@ -133,11 +132,8 @@ handler.on('push', function(event) {
 WEB_PATH='/var/www/'$1
 
 cd $WEB_PATH
-echo "pulling source code..."
-git reset --hard origin/master
-git clean -f
+echo "pulling source code at $WEB_PATH..."
 git pull
-git checkout master
 ```
 
 假设网站目录在 /var/www/ 下，以 repo 名命名。然后执行 :
@@ -160,5 +156,5 @@ location /deploy {
 ## 添加 webhook
 
 打开 repo 的 settings-webhooks，点击 add webhook，按下图配置：
-![webhook配置](https://i.loli.net/2018/12/20/5c1b9a248b403.png)
+![webhook](https://i.loli.net/2018/12/20/5c1b9a248b403.png)
 secret 要和 webhook.js 中的相同。添加以后，如果 request 正确的返回了 200，网站应该自动更新完毕了。
