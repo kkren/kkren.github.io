@@ -2,7 +2,7 @@ language: node_js
 node_js: stable
 branchs:
   only:
-  - master
+  - hexo
 cache:
   directories:
   - node_modules
@@ -13,7 +13,6 @@ install:
 # 安装依赖包
 - sudo apt-get update
 - sudo apt-get install -y graphicsmagick
-- gm -h
 - npm install
 script:
 - hexo g
