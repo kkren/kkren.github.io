@@ -11,7 +11,7 @@ before_install:
 - npm install -g hexo-cli
 install:
 # 安装依赖包
-- apt-get install imagemagick
+- sudo apt-get install -y imagemagick
 - npm install
 script:
 # 生成静态文件
