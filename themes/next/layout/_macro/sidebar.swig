@@ -8,9 +8,6 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
-    {% if theme.sidebar.onmobile %}
-      <div id="sidebar-dimmer"></div>
-    {% endif %}
     <div class="sidebar-inner">
 
       {% set display_toc = is_post and theme.toc.enable or is_page and theme.toc.enable %}
@@ -26,13 +23,13 @@
         </ul>
       {% endif %}
 
-      <section class="site-overview-wrap sidebar-panel{% if not display_toc or toc(page.content).length <= 1 %} sidebar-panel-active{% endif %}">
+      <div class="site-overview-wrap sidebar-panel{% if not display_toc or toc(page.content).length <= 1 %} sidebar-panel-active{% endif %}">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             {% if theme.avatar.url %}
               <img class="site-author-image" itemprop="image"
                 src="{{ url_for( theme.avatar.url | default(theme.images + '/avatar.gif') ) }}"
-                alt="{{ author }}" />
+                alt="{{ author }}"/>
             {% endif %}
               <p class="site-author-name" itemprop="name">{{ author }}</p>
               <p class="site-description motion-element" itemprop="description">{#
@@ -115,13 +112,14 @@
 
           {% if theme.creative_commons.license and theme.creative_commons.sidebar %}
              <div class="cc-license motion-element" itemprop="license">
+              {% set ccLanguage = theme.creative_commons.language %}
               {% if theme.creative_commons.license === 'zero' %}
-                {% set ccType = 'publicdomain/zero/1.0/' %}
+                {% set ccType = 'publicdomain/zero/1.0/' + ccLanguage %}
               {% else %}
-                {% set ccType = 'licenses/' + theme.creative_commons.license + '/4.0/' %}
+                {% set ccType = 'licenses/' + theme.creative_commons.license + '/4.0/' + ccLanguage %}
               {% endif %}
               {% set ccURL = 'https://creativecommons.org/' + ccType %}
-              {% set ccImage = '<img src="' + url_for(theme.images) + '/cc-' + theme.creative_commons.license + '.svg" alt="Creative Commons" />' %}
+              {% set ccImage = '<img src="' + url_for(theme.images + '/cc-' + theme.creative_commons.license + '.svg') + '" alt="Creative Commons"/>' %}
               {{ next_url(ccURL, ccImage, {class: 'cc-opacity'}) }}
              </div>
           {% endif %}
@@ -150,18 +148,19 @@
           {% endif %}
           {% include custom_sidebar %}
         </div>
-      </section>
+      </div>
 
       {% if display_toc and toc(page.content).length > 1 %}
       <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
 
-            {% if page.toc_number === undefined %}
-              {% set toc = toc(page.content, { "class": "nav", list_number: theme.toc.number }) %}
-            {% else %}
-              {% set toc = toc(page.content, { "class": "nav", list_number: page.toc_number }) %}
+            {% set next_toc_number = theme.toc.number %}
+            {% if page.toc_number !== undefined %}
+              {% set next_toc_number = page.toc_number %}
             {% endif %}
+            {% set next_toc_max_depth = page.toc_max_depth|default(theme.toc.max_depth)|default(6) %}
+            {% set toc = toc(page.content, { "class": "nav", list_number: next_toc_number, max_depth: next_toc_max_depth }) %}
 
             {% if toc.length <= 1 %}
               <p class="post-toc-empty">{{ __('post.toc_empty') }}</p>
@@ -170,7 +169,7 @@
             {% endif %}
 
           </div>
-        </section>
+        </div>
       <!--/noindex-->
       {% endif %}
 
@@ -185,4 +184,7 @@
 
     </div>
   </aside>
+  {% if theme.sidebar.dimmer %}
+    <div id="sidebar-dimmer"></div>
+  {% endif %}
 {% endmacro %}
