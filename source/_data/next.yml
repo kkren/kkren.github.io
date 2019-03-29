@@ -188,7 +188,7 @@ links_layout: block
 #links_layout: inline
 links:
   Mrlong: https://www.mrlong.cc/
-  Phantom网络加速: https://ssrfq.com/
+  Phantom网络加速: https://phantom-net.tech/
   kotomei: https://kotomei.moe
   320印象: https://pcysanji.github.io
   
@@ -589,7 +589,9 @@ needmoreshare2:
 google_site_verification: vquFCjMxdKDUwHpzOfQUCTleb6yxytY87HpT4_MUI4k
 
 # Google Analytics
-#google_analytics:
+google_analytics:
+  tracking_id: UA-137249788-1
+  localhost_ignored: true
 
 # Bing Webmaster tools verification setting
 # See: https://www.bing.com/webmaster/
