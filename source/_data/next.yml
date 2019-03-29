@@ -515,6 +515,20 @@ valine:
   guest_info: nick,mail,link # custom comment header
   pageSize: 10 # pagination size
 
+# Quicklink Support
+# Dependencies: https://cdn.jsdelivr.net/npm/quicklink/dist/
+# Visit https://github.com/GoogleChromeLabs/quicklink for details
+quicklink:
+  enable: true
+  timeout: 3000 # Custom a timeout (milliseconds) for prefetching resources
+  priority: true # Set true to enable fetch() or falls back to XHR
+  # For more flexibility you can add some patterns (RegExp, Function, or Array) to ignores
+  # See: https://github.com/GoogleChromeLabs/quicklink#custom-ignore-patterns
+  # Leave ignores as empty if you don't understand what it means
+  # Example:
+  # ignores: uri => uri.includes('.xml'), (uri, elem) => elem.hasAttribute('noprefetch')
+  # ignores: [/\/api\/?/, uri => uri.includes('123.html')]
+  ignores:
 
 # Support for youyan comments system.
 # You can get your uid from http://www.uyan.cc
@@ -973,6 +987,11 @@ vendors:
   # Example: https://cdn.jsdelivr.net/npm/valine@1.1.8/dist/Valine.min.js
   valine:
 
+  # Internal version: 1.0.0
+  # See: https://github.com/GoogleChromeLabs/quicklink
+  # Example:
+  # quicklink: //cdn.jsdelivr.net/npm/quicklink@1.0.0/dist/quicklink.umd.js
+  quicklink: //cdn.jsdelivr.net/npm/quicklink@1.0.0/dist/quicklink.umd.js
 
 # Assets
 css: css
