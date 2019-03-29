@@ -5,7 +5,7 @@ tags:
 urlname: nginx-configuration
 ---
 
-最近从 [Phantom网络加速](https://ssrfq.com/)白嫖了一台贵州的机器。因为没有备案，所以只能请大家用 https 访问了。在编译的过程中，参考了 [imququ](https://imququ.com/post/enable-tls-1-3.html) 等大佬的资料，在最新的 mainline Nginx 之上添加了 ngx_brotli 模块并使用最新的 OpenSSL 编译。<!-- more -->
+在编译的过程中，参考了 [imququ](https://imququ.com/post/enable-tls-1-3.html) 等大佬的资料，在最新的 mainline Nginx 之上添加了 ngx_brotli 模块并使用最新的 OpenSSL 编译。<!-- more -->
 
 ## 编译 Nginx
 
