@@ -20,14 +20,19 @@ $(document).ready(function() {
   function initAffix() {
     var headerOffset = getHeaderOffset();
     var footerOffset = getFooterOffset();
+    var sidebarHeight = $('#sidebar').height() + NexT.utils.getSidebarb2tHeight();
+    var contentHeight = $('#content').height();
 
-    sidebarInner.affix({
-      offset: {
-        top   : headerOffset - sidebarOffset,
-        bottom: footerOffset
-      }
-    });
-    sidebarInner.affix('checkPosition');
+    // Not affix if sidebar taller than content (to prevent bottom jumping).
+    if (headerOffset + sidebarHeight < contentHeight) {
+      sidebarInner.affix({
+        offset: {
+          top   : headerOffset - sidebarOffset,
+          bottom: footerOffset
+        }
+      });
+      sidebarInner.affix('checkPosition');
+    }
 
     $('#sidebar').css({ 'margin-top': headerOffset, 'margin-left': 'auto' });
   }
