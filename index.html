@@ -1,8 +1,10 @@
-<!DOCTYPE html><html lang="zh-CN"><head>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -30,7 +32,7 @@
     bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
     mediumzoom: false,
-    lazyload: false,
+    lazyload: true,
     pangu: false,
     algolia: {
       appID: '',
@@ -53,14 +55,12 @@
 
   <meta name="description" content="kkren 写 bug 的地方">
 <meta property="og:type" content="website">
-<meta property="og:title" content="kkren's blog">
-<meta property="og:url" content="https://blog.kkren.me/index.html">
-<meta property="og:site_name" content="kkren's blog">
+<meta property="og:title" content="kkren&#39;s blog">
+<meta property="og:url" content="https:&#x2F;&#x2F;blog.kkren.me&#x2F;index.html">
+<meta property="og:site_name" content="kkren&#39;s blog">
 <meta property="og:description" content="kkren 写 bug 的地方">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="kkren's blog">
-<meta name="twitter:description" content="kkren 写 bug 的地方">
 
 <link rel="canonical" href="https://blog.kkren.me/">
 
@@ -79,7 +79,7 @@
   <title>kkren's blog - 菜鸡的博客</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137249788-1"></script>
-    <script pjax="">
+    <script pjax>
       var host = window.location.hostname;
       if (host !== "localhost" || !true) {
         window.dataLayer = window.dataLayer || [];
@@ -121,11 +121,11 @@
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage">
+<body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
 
@@ -177,7 +177,9 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="搜索..." spellcheck="false" type="text" id="search-input">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
@@ -212,16 +214,16 @@
         
   
   
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://blog.kkren.me/2019/03/improve-windows-font-rendering/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="kkren">
       <meta itemprop="description" content="kkren 写 bug 的地方">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="kkren's blog">
     </span>
       <header class="post-header">
@@ -244,7 +246,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-25 05:30:01" itemprop="dateModified" datetime="2019-10-25T05:30:01+08:00">2019-10-25</time>
+                <time title="修改时间：2019-10-25 06:31:48" itemprop="dateModified" datetime="2019-10-25T06:31:48+08:00">2019-10-25</time>
               </span>
 
           <br>
@@ -253,13 +255,13 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
+              <span>912</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
-                <span class="post-meta-item-text">阅读时长 ≈</span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
               <span>1 分钟</span>
             </span>
 
@@ -274,9 +276,9 @@
       
           <p>从2k屏的Surface book换到24寸的1080p Dell 屏，Windows 默认的字体渲染几乎不能忍。因为我很穷，买不起高分辨率的显示器，只好研究一些奇怪的方式来优化这电脑的使用体验。
           <!--noindex-->
-            </p><div class="post-button">
+            <div class="post-button">
               <a class="btn" href="/2019/03/improve-windows-font-rendering/#more" rel="contents">
-                阅读全文 »
+                阅读全文 &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -298,16 +300,16 @@
         
   
   
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://blog.kkren.me/2018/12/hexo-with-travis/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="kkren">
       <meta itemprop="description" content="kkren 写 bug 的地方">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="kkren's blog">
     </span>
       <header class="post-header">
@@ -330,7 +332,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-25 05:30:01" itemprop="dateModified" datetime="2019-10-25T05:30:01+08:00">2019-10-25</time>
+                <time title="修改时间：2019-10-25 06:31:48" itemprop="dateModified" datetime="2019-10-25T06:31:48+08:00">2019-10-25</time>
               </span>
 
           <br>
@@ -339,14 +341,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
+              <span>2.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
-                <span class="post-meta-item-text">阅读时长 ≈</span>
-              <span>1 分钟</span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -360,9 +362,9 @@
       
           <p>过去一直在写完博客后手动生成静态文件，然后丢到服务器上。但是在多终端上不方便保持统一的体验。解决这个问题的办法是使用 Travis ci 自动编译 hexo 的静态文件，然后通过 GitHub webhook 通知服务器更新网站。
           <!--noindex-->
-            </p><div class="post-button">
+            <div class="post-button">
               <a class="btn" href="/2018/12/hexo-with-travis/#more" rel="contents">
-                阅读全文 »
+                阅读全文 &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -384,16 +386,16 @@
         
   
   
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://blog.kkren.me/2018/10/nginx-configuration/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="kkren">
       <meta itemprop="description" content="kkren 写 bug 的地方">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="kkren's blog">
     </span>
       <header class="post-header">
@@ -416,7 +418,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-25 05:30:01" itemprop="dateModified" datetime="2019-10-25T05:30:01+08:00">2019-10-25</time>
+                <time title="修改时间：2019-10-25 06:31:48" itemprop="dateModified" datetime="2019-10-25T06:31:48+08:00">2019-10-25</time>
               </span>
 
           <br>
@@ -425,14 +427,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
+              <span>2.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
-                <span class="post-meta-item-text">阅读时长 ≈</span>
-              <span>1 分钟</span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -446,9 +448,9 @@
       
           <p>在编译的过程中，参考了 <a href="https://imququ.com/post/enable-tls-1-3.html" target="_blank" rel="noopener">imququ</a> 等大佬的资料，在最新的 mainline Nginx 之上添加了 ngx_brotli 模块并使用最新的 OpenSSL 编译。
           <!--noindex-->
-            </p><div class="post-button">
+            <div class="post-button">
               <a class="btn" href="/2018/10/nginx-configuration/#more" rel="contents">
-                阅读全文 »
+                阅读全文 &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -470,16 +472,16 @@
         
   
   
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://blog.kkren.me/2018/05/transmission-in-linux/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="kkren">
       <meta itemprop="description" content="kkren 写 bug 的地方">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="kkren's blog">
     </span>
       <header class="post-header">
@@ -502,7 +504,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-25 05:30:01" itemprop="dateModified" datetime="2019-10-25T05:30:01+08:00">2019-10-25</time>
+                <time title="修改时间：2019-10-25 06:31:48" itemprop="dateModified" datetime="2019-10-25T06:31:48+08:00">2019-10-25</time>
               </span>
 
           <br>
@@ -511,14 +513,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
+              <span>2.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
-                <span class="post-meta-item-text">阅读时长 ≈</span>
-              <span>1 分钟</span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -532,9 +534,9 @@
       
           <p>现在在linux服务器上部署的pt下载器主要是aria2， transmission和rtorrent，然而aria2要下载pt的话还需要伪装客户端，rtorrent的webui太丑加载速度还很慢，于是最后选择了transmission。博客中提到的服务器的配置为Intel Atom N2800 2c/4 t 1.86GHz，4Gb DDR3 1066，2T HDD， 位于欧洲，不抗投诉。
           <!--noindex-->
-            </p><div class="post-button">
+            <div class="post-button">
               <a class="btn" href="/2018/05/transmission-in-linux/#more" rel="contents">
-                阅读全文 »
+                阅读全文 &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -556,16 +558,16 @@
         
   
   
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://blog.kkren.me/2018/05/hello-world/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="kkren">
       <meta itemprop="description" content="kkren 写 bug 的地方">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="kkren's blog">
     </span>
       <header class="post-header">
@@ -588,7 +590,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-25 05:30:01" itemprop="dateModified" datetime="2019-10-25T05:30:01+08:00">2019-10-25</time>
+                <time title="修改时间：2019-10-25 06:31:48" itemprop="dateModified" datetime="2019-10-25T06:31:48+08:00">2019-10-25</time>
               </span>
 
           <br>
@@ -597,13 +599,13 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
+              <span>64</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
-                <span class="post-meta-item-text">阅读时长 ≈</span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
               <span>1 分钟</span>
             </span>
 
@@ -669,8 +671,9 @@
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-  <img class="site-author-image" itemprop="image" alt="kkren" src="/images/avatar.png">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="kkren"
+    src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">kkren</p>
   <div class="site-description" itemprop="description">kkren 写 bug 的地方</div>
 </div>
@@ -691,13 +694,13 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2trcmVu" title="GitHub → https://github.com/kkren"><i class="fa fa-fw fa-github"></i>GitHub</span>
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2trcmVu" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;kkren"><i class="fa fa-fw fa-github"></i>GitHub</span>
       </span>
       <span class="links-of-author-item">
-        <span class="exturl" data-url="bWFpbHRvOmlAa2tyZW4ubWU=" title="E-Mail → mailto:i@kkren.me"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
+        <span class="exturl" data-url="bWFpbHRvOmlAa2tyZW4ubWU=" title="E-Mail &amp;rarr; mailto:i@kkren.me"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
       </span>
       <span class="links-of-author-item">
-        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9ra3JlbjAwMQ==" title="Twitter → https://twitter.com/kkren001"><i class="fa fa-fw fa-twitter"></i>Twitter</span>
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9ra3JlbjAwMQ==" title="Twitter &amp;rarr; https:&#x2F;&#x2F;twitter.com&#x2F;kkren001"><i class="fa fa-fw fa-twitter"></i>Twitter</span>
       </span>
   </div>
   <div class="cc-license motion-element" itemprop="license">
@@ -712,13 +715,13 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <span class="exturl" data-url="aHR0cHM6Ly93d3cubXJsb25nLmNjLw==" title="https://www.mrlong.cc/">Mrlong</span>
+          <span class="exturl" data-url="aHR0cHM6Ly93d3cubXJsb25nLmNjLw==" title="https:&#x2F;&#x2F;www.mrlong.cc&#x2F;">Mrlong</span>
         </li>
         <li class="links-of-blogroll-item">
-          <span class="exturl" data-url="aHR0cHM6Ly9rb3RvbWVpLm1vZQ==" title="https://kotomei.moe">kotomei</span>
+          <span class="exturl" data-url="aHR0cHM6Ly9rb3RvbWVpLm1vZQ==" title="https:&#x2F;&#x2F;kotomei.moe">kotomei</span>
         </li>
         <li class="links-of-blogroll-item">
-          <span class="exturl" data-url="aHR0cHM6Ly93d3cuMzIwbmxlLmNvbQ==" title="https://www.320nle.com">320印象</span>
+          <span class="exturl" data-url="aHR0cHM6Ly93d3cuMzIwbmxlLmNvbQ==" title="https:&#x2F;&#x2F;www.320nle.com">320印象</span>
         </li>
     </ul>
   </div>
@@ -739,7 +742,7 @@
 
 <div class="copyright">
   
-  © 2017 – 
+  &copy; 2017 – 
   <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
@@ -756,7 +759,7 @@
     </span>
     <span title="站点阅读时长">8 分钟</span>
 </div>
-  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v3.9.0
+  <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span> v7.4.2
@@ -782,9 +785,10 @@
 
   
   
-  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="https://cdn.jsdelivr.net/gh/hustcc/canvas-nest.js@1.0.0/canvas-nest.min.js"></script>
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="https://cdn.jsdelivr.net/gh/hustcc/canvas-nest.js@1.0.0/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>
@@ -890,6 +894,5 @@ window.addEventListener('pjax:success', () => {
 
 
     </div>
-
-
-<script type="text/javascript" charset="utf-8" src="/js/lazyload-plugin/lazyload.intersectionObserver.min.js"></script></body></html>
+</body>
+</html>
