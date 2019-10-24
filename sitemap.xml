@@ -2,37 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://kkren.me/2019/03/improve-windows-font-rendering/</loc>
+    <loc>https://blog.kkren.me/2019/03/improve-windows-font-rendering/</loc>
     
-    <lastmod>2019-10-18T20:18:49.587Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://kkren.me/2018/05/hello-world/</loc>
-    
-    <lastmod>2019-10-18T20:18:49.587Z</lastmod>
+    <lastmod>2019-10-24T20:57:41.791Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://kkren.me/2018/05/transmission-in-linux/</loc>
+    <loc>https://blog.kkren.me/2018/05/hello-world/</loc>
     
-    <lastmod>2019-10-18T20:18:49.587Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://kkren.me/2018/12/hexo-with-travis/</loc>
-    
-    <lastmod>2019-10-18T20:18:49.587Z</lastmod>
+    <lastmod>2019-10-24T20:57:41.791Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://kkren.me/2018/10/nginx-configuration/</loc>
+    <loc>https://blog.kkren.me/2018/05/transmission-in-linux/</loc>
     
-    <lastmod>2019-10-18T20:18:49.587Z</lastmod>
+    <lastmod>2019-10-24T20:57:41.791Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.kkren.me/2018/12/hexo-with-travis/</loc>
+    
+    <lastmod>2019-10-24T20:57:41.791Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.kkren.me/2018/10/nginx-configuration/</loc>
+    
+    <lastmod>2019-10-24T20:57:41.791Z</lastmod>
     
   </url>
   
