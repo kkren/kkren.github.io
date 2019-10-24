@@ -179,6 +179,10 @@ local_search:
   # unescape html strings to the readable one
   unescape: false
 
+# Remove unnecessary files after hexo generate.
+minify: true
+
+pjax: true
 
 
 # ---------------------------------------------------------------
@@ -203,11 +207,11 @@ canvas_nest:
 # Please use the https protocol of CDN files when you enable https on your site.
 vendors:
   # Internal version: 2.1.3
-  jquery: https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js
+  jquery: //cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js
 
-  # Internal version: 4.6.2
+  # Internal version: 4.7.0
   # See: http://fontawesome.io/
-  fontawesome: https://cdn.jsdelivr.net/npm/font-awesome@4.6.3/css/font-awesome.min.css
+  fontawesome: https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css
 
   # Internal version: 1.0.0
   # https://github.com/hustcc/canvas-nest.js
@@ -233,3 +237,8 @@ vendors:
   # disqusjs_css: //cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css
   disqusjs_js: https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js
   disqusjs_css: https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css
+
+  # Internal version: 0.2.8
+  # Example:
+  # pjax: //cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js
+  pjax: //cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js

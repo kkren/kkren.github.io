@@ -5,7 +5,7 @@
 # Site
 title: kkren's blog
 subtitle: 菜鸡的博客
-description: kkren写bug的地方
+description: kkren 写 bug 的地方
 keywords:
 author: kkren
 language: zh-CN
@@ -99,19 +99,6 @@ symbols_count_time:
   total_symbols: true
   total_time: true
   
-# offline config passed to sw-precache.
-service_worker:
-  maximumFileSizeToCacheInBytes: 5242880
-  staticFileGlobs:
-  - public/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff,woff2}
-  stripPrefix: public
-  verbose: true
-  runtimeCaching:
-    - urlPattern: /*
-      handler: cacheFirst
-      options:
-        origin: cdn.jsdelivr.net
-
 netlify_cms:
   backend:
     name: git-gateway
