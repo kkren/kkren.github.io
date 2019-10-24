@@ -139,14 +139,7 @@ quicklink:
 reading_progress:
   enable: true
   color: "#37c6c0"
-  height: 2px
-
-# Disqus
-disqus:
-  enable: false
-  shortname: kkren
-  count: false
-  lazyload: true
+  height: 3px
 
 # DisqusJS
 # Alternative Disqus - Render comment component using Disqus API
@@ -184,6 +177,15 @@ minify: true
 
 pjax: true
 
+# Vanilla JavaScript plugin for lazyloading images.
+lazyload: true
+
+symbols_count_time:
+  separated_meta: true
+  item_text_post: true
+  item_text_total: false
+  awl: 4
+  wpm: 275
 
 # ---------------------------------------------------------------
 # Tags Settings
@@ -242,3 +244,5 @@ vendors:
   # Example:
   # pjax: //cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js
   pjax: //cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js
+
+  lazyload: //cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js

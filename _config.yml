@@ -89,9 +89,6 @@ search:
 
 sitemap:
   path: sitemap.xml
-  
-lazyload:
-  enable: true
 
 symbols_count_time:
   symbols: true
