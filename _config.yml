@@ -13,7 +13,7 @@ timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://kkren.me
+url: https://blog.kkren.me
 root: /
 permalink: :year/:month/:urlname/
 permalink_defaults:
@@ -81,32 +81,6 @@ deploy:
   type: git
   repo: https://github.com/kkren/kkren.github.io.git
 
-filter_optimize:
-  enable: true
-  # remove static resource query string
-  #   - like `?v=1.0.0`
-  remove_query_string: true
-  # remove the surrounding comments in each of the bundled files
-  remove_comments: true
-  css:
-    enable: true
-    # bundle loaded css file into the one
-    bundle: true
-    # use a script block to load css elements dynamically
-    delivery: true
-    # make specific css content inline into the html page
-    #   - only support the full path
-    #   - default is ['css/main.css']
-    inlines:
-    excludes:
-  js:
-    # bundle loaded js file into the one
-    bundle: true
-    excludes:
-  # set the priority of this plugin,
-  # lower means it will be executed first, default is 10
-  priority: 12
-
 search:
   path: search.xml
   field: post
@@ -137,3 +111,8 @@ service_worker:
       handler: cacheFirst
       options:
         origin: cdn.jsdelivr.net
+
+netlify_cms:
+  backend:
+    name: git-gateway
+    branch: hexo
