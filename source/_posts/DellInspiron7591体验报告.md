@@ -33,10 +33,13 @@ urlname: Dell-Inspiron-7591-review
 ## 外观
 ![A](https://i.loli.net/2019/07/08/5d22f5761830c81269.jpg)
 <center>A 面，还是经典的 Dell 圆形 Logo</center>
+
 ![BC.jpg](https://i.loli.net/2019/07/08/5d22f57f3833679487.jpg)
 <center>B、C 面，可以看到键盘和机身是同样材质的金属键盘</center>
+
 ![D.jpg](https://i.loli.net/2019/07/08/5d22f5785a3f971570.jpg)
 <center>D 面，作为相对廉价的 Inspiron 产品线肯定没有和 XPS 那样「高贵」的「狗牌」</center>
+
 ## 性能
 不多说，直接放跑分成绩。
 
