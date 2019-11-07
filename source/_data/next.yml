@@ -1,3 +1,5 @@
+reminder: true
+
 footer:
   # Specify the date when the site was setup.
   # If not defined, current year will be used.
@@ -172,6 +174,15 @@ local_search:
   # unescape html strings to the readable one
   unescape: false
 
+# ---------------------------------------------------------------
+# Animation Settings
+# ---------------------------------------------------------------
+
+# Use velocity to animate everything.
+# For more information: http://velocityjs.org
+motion:
+  async: true
+
 # Remove unnecessary files after hexo generate.
 minify: true
 
@@ -220,12 +231,6 @@ vendors:
   canvas_nest: https://cdn.jsdelivr.net/gh/hustcc/canvas-nest.js@1.0.0/canvas-nest.min.js
   canvas_nest_nomobile: https://cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest-nomobile.min.js
 
-  # reading_progress
-  # Internal version: 1.0
-  # https://github.com/theme-next/theme-next-reading-progress
-  # Example: https://cdn.jsdelivr.net/gh/theme-next/theme-next-reading-progress@1.1/reading_progress.min.js
-  reading_progress: https://cdn.jsdelivr.net/gh/theme-next/theme-next-reading-progress@1.1/reading_progress.min.js
-
   # Internal version: 1.0.0
   # See: https://github.com/GoogleChromeLabs/quicklink
   # Example:
@@ -245,4 +250,22 @@ vendors:
   # pjax: //cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js
   pjax: //cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js
 
+  # Lazyload
+  # Example:
+  # lazyload: //cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js
+  # lazyload: //cdnjs.cloudflare.com/ajax/libs/lozad.js/1.9.0/lozad.min.js
   lazyload: //cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js
+
+  # Internal version: 1.2.1
+  # Example:
+  # velocity: //cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js
+  # velocity: //cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.min.js
+  # velocity_ui: //cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js
+  # velocity_ui: //cdnjs.cloudflare.com/ajax/libs/velocity/1.2.1/velocity.ui.min.js
+  velocity: //cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js
+  velocity_ui: //cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js
+
+  # Internal version: 3.1.0
+  # Example:
+  # anime: //cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js
+  anime: //cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js
