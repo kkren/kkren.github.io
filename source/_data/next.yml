@@ -83,7 +83,7 @@ avatar:
   # in theme directory(source/images): /images/avatar.gif
   # in site  directory(source/uploads): /uploads/avatar.gif
   # You can also use other linking images.
-  url: /images/avatar.png
+  url: /images/avatar.webp
 
 
 # ---------------------------------------------------------------
