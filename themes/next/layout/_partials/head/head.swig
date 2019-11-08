@@ -22,11 +22,8 @@
   <meta name="msapplication-config" content="{{ url_for(theme.favicon.ms_browserconfig) }}">
 {%- endif %}
 
-{%- if theme.rss === '' and config.feed.path %}
-  {%- set theme = theme | attr('rss', config.feed.path) %}
-{%- endif %}
-{%- if theme.rss %}
-  <link rel="alternate" href="{{ url_for(theme.rss) }}" title="{{ title }}" type="application/atom+xml">
+{%- if rss %}
+  <link rel="alternate" href="{{ url_for(rss) }}" title="{{ title }}" type="application/atom+xml">
 {%- endif %}
 
 {%- if theme.disable_baidu_transformation %}
@@ -44,11 +41,6 @@
 {%- endif %}
 {%- if theme.baidu_site_verification %}
   <meta name="baidu-site-verification" content="{{ theme.baidu_site_verification }}">
-{%- endif %}
-
-{%- if theme.facebook_sdk.enable and theme.facebook_sdk.webmaster %}
-  <meta property="fb:admins" content="{{ theme.facebook_sdk.fb_admin }}">
-  <meta property="fb:app_id" content="{{ theme.facebook_sdk.app_id }}">
 {%- endif %}
 
 <link rel="stylesheet" href="{{ url_for(theme.css) }}/main.css">
