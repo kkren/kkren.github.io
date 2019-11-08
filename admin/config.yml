@@ -1,6 +1,6 @@
 backend:
   name: test-repo
-  branch: hexo
+  branch: master
 media_folder: source/images
 public_folder: /images
 collections:

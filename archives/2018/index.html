@@ -9,6 +9,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="kkren's blog" type="application/atom+xml">
   <meta http-equiv="Cache-Control" content="no-transform">
   <meta http-equiv="Cache-Control" content="no-siteapp">
   <meta name="google-site-verification" content="vquFCjMxdKDUwHpzOfQUCTleb6yxytY87HpT4_MUI4k">
@@ -24,7 +25,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    version: '7.4.2',
+    version: '7.5.0',
     exturl: true,
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
     copycode: {"enable":false,"show_result":false,"style":null},
@@ -43,7 +44,7 @@
     },
     localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
       copy_button: '复制',
       copy_success: '复制成功',
@@ -88,8 +89,6 @@
         gtag('config', 'UA-137249788-1');
       }
     </script>
-
-
 
 
 
@@ -237,7 +236,7 @@
 
       <h3 class="post-title">
           <a class="post-title-link" href="/2018/12/hexo-with-travis/" itemprop="url">
-            <span itemprop="name">持续集成部署hexo</span>
+            <span itemprop="name">持续集成部署 hexo</span>
           </a>
       </h3>
 
@@ -257,7 +256,7 @@
 
       <h3 class="post-title">
           <a class="post-title-link" href="/2018/10/nginx-configuration/" itemprop="url">
-            <span itemprop="name">本博客的Nginx优化编译方案</span>
+            <span itemprop="name">本博客的 Nginx 优化编译方案</span>
           </a>
       </h3>
 
@@ -277,7 +276,7 @@
 
       <h3 class="post-title">
           <a class="post-title-link" href="/2018/05/transmission-in-linux/" itemprop="url">
-            <span itemprop="name">使用transmission在linux上搭建pt下载环境</span>
+            <span itemprop="name">使用 transmission 在 linux 上搭建 pt 下载环境</span>
           </a>
       </h3>
 
@@ -366,6 +365,11 @@
       </div>
   </nav>
 </div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
         <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2trcmVu" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;kkren"><i class="fa fa-fw fa-github"></i>GitHub</span>
@@ -439,7 +443,7 @@
   <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span> v7.4.2
+  <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span> v7.5.0
   </div>
 
         
@@ -463,11 +467,11 @@
   
   
   <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="https://cdn.jsdelivr.net/gh/hustcc/canvas-nest.js@1.0.0/canvas-nest.min.js"></script>
-  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>
 <script src="/js/schemes/pisces.js"></script>
 <script src="/js/next-boot.js"></script>
@@ -536,8 +540,6 @@ window.addEventListener('pjax:success', () => {
 
 
 
-
-
   <script src="/js/local-search.js"></script>
 
 
@@ -566,8 +568,6 @@ window.addEventListener('pjax:success', () => {
         });
         });
     </script>
-
-  
 
 
     </div>

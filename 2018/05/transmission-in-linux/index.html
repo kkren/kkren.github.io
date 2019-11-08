@@ -9,6 +9,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="kkren's blog" type="application/atom+xml">
   <meta http-equiv="Cache-Control" content="no-transform">
   <meta http-equiv="Cache-Control" content="no-siteapp">
   <meta name="google-site-verification" content="vquFCjMxdKDUwHpzOfQUCTleb6yxytY87HpT4_MUI4k">
@@ -24,7 +25,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    version: '7.4.2',
+    version: '7.5.0',
     exturl: true,
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
     copycode: {"enable":false,"show_result":false,"style":null},
@@ -43,7 +44,7 @@
     },
     localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
       copy_button: '复制',
       copy_success: '复制成功',
@@ -56,13 +57,13 @@
   <meta name="description" content="现在在linux服务器上部署的pt下载器主要是aria2， transmission和rtorrent，然而aria2要下载pt的话还需要伪装客户端，rtorrent的webui太丑加载速度还很慢，于是最后选择了transmission。博客中提到的服务器的配置为Intel Atom N2800 2c&#x2F;4 t 1.86GHz，4Gb DDR3 1066，2T HDD， 位于欧洲，不抗投诉。">
 <meta name="keywords" content="技术">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用transmission在linux上搭建pt下载环境">
+<meta property="og:title" content="使用 transmission 在 linux 上搭建 pt 下载环境">
 <meta property="og:url" content="https:&#x2F;&#x2F;blog.kkren.me&#x2F;2018&#x2F;05&#x2F;transmission-in-linux&#x2F;index.html">
 <meta property="og:site_name" content="kkren&#39;s blog">
 <meta property="og:description" content="现在在linux服务器上部署的pt下载器主要是aria2， transmission和rtorrent，然而aria2要下载pt的话还需要伪装客户端，rtorrent的webui太丑加载速度还很慢，于是最后选择了transmission。博客中提到的服务器的配置为Intel Atom N2800 2c&#x2F;4 t 1.86GHz，4Gb DDR3 1066，2T HDD， 位于欧洲，不抗投诉。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2018&#x2F;10&#x2F;22&#x2F;5bcda5ea4387b.jpg">
-<meta property="og:updated_time" content="2019-10-29T15:50:28.446Z">
+<meta property="og:updated_time" content="2019-11-08T00:26:14.418Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2018&#x2F;10&#x2F;22&#x2F;5bcda5ea4387b.jpg">
 
@@ -80,7 +81,7 @@
   };
 </script>
 
-  <title>使用transmission在linux上搭建pt下载环境 | kkren's blog</title>
+  <title>使用 transmission 在 linux 上搭建 pt 下载环境 | kkren's blog</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137249788-1"></script>
     <script pjax>
@@ -92,8 +93,6 @@
         gtag('config', 'UA-137249788-1');
       }
     </script>
-
-
 
 
 
@@ -232,7 +231,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          使用transmission在linux上搭建pt下载环境
+          使用 transmission 在 linux 上搭建 pt 下载环境
         </h2>
 
         <div class="post-meta">
@@ -249,7 +248,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-29 23:50:28" itemprop="dateModified" datetime="2019-10-29T23:50:28+08:00">2019-10-29</time>
+                <time title="修改时间：2019-11-08 08:26:14" itemprop="dateModified" datetime="2019-11-08T08:26:14+08:00">2019-11-08</time>
               </span>
 
           <br>
@@ -277,22 +276,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>现在在linux服务器上部署的pt下载器主要是aria2， transmission和rtorrent，然而aria2要下载pt的话还需要伪装客户端，rtorrent的webui太丑加载速度还很慢，于是最后选择了transmission。博客中提到的服务器的配置为Intel Atom N2800 2c/4 t 1.86GHz，4Gb DDR3 1066，2T HDD， 位于欧洲，不抗投诉。<a id="more"></a></p>
-<h2 id="安装transmission与deamon"><a href="#安装transmission与deamon" class="headerlink" title="安装transmission与deamon"></a>安装transmission与deamon</h2><p>服务器的系统环境是debian9，所以可以很方便用包管理器安装需要的软件</p>
+        <p> 现在在 linux 服务器上部署的 pt 下载器主要是 aria2， transmission 和 rtorrent，然而 aria2 要下载 pt 的话还需要伪装客户端，rtorrent 的 webui 太丑加载速度还很慢，于是最后选择了 transmission。博客中提到的服务器的配置为 Intel Atom N2800 2c/4 t 1.86GHz，4Gb DDR3 1066，2T HDD， 位于欧洲，不抗投诉。<a id="more"></a></p>
+<h2 id="安装 transmission 与 deamon"><a href="# 安装 transmission 与 deamon" class="headerlink" title="安装 transmission 与 deamon"></a> 安装 transmission 与 deamon</h2><p> 服务器的系统环境是 debian9，所以可以很方便用包管理器安装需要的软件 </p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt -y install transmission transmission-deamon</span><br><span class="line">systemctl enable transmission-deamon</span><br></pre></td></tr></table></figure>
 
-<p>好像没有什么特别的配置要配置的，反正webui里都可以改</p>
-<h2 id="安装修改版的transmission-webui"><a href="#安装修改版的transmission-webui" class="headerlink" title="安装修改版的transmission webui"></a>安装修改版的transmission webui</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3JvbmdnYW5nL3RyYW5zbWlzc2lvbi13ZWItY29udHJvbA==" title="https://github.com/ronggang/transmission-web-control">项目地址<i class="fa fa-external-link"></i></span>，安装过程也是全自动的</p>
+<p> 好像没有什么特别的配置要配置的，反正 webui 里都可以改 </p>
+<h2 id="安装修改版的 transmission-webui"><a href="# 安装修改版的 transmission-webui" class="headerlink" title="安装修改版的 transmission webui"></a> 安装修改版的 transmission webui</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3JvbmdnYW5nL3RyYW5zbWlzc2lvbi13ZWItY29udHJvbA==" title="https://github.com/ronggang/transmission-web-control"> 项目地址 <i class="fa fa-external-link"></i></span>，安装过程也是全自动的 </p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/ronggang/transmission-web-control/raw/master/release/install-tr-control.sh</span><br><span class="line">bash install-tr-control.sh</span><br></pre></td></tr></table></figure>
 
-<p>接下来输入1然后按回车就可以了<br>然后重启下transmission</p>
+<p> 接下来输入 1 然后按回车就可以了 <br> 然后重启下 transmission</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart transmission-deamon</span><br></pre></td></tr></table></figure>
 
-<h2 id="安装-transmission-rss"><a href="#安装-transmission-rss" class="headerlink" title="安装 transmission-rss"></a>安装 transmission-rss</h2><h2 id="使用nginx-反代webui"><a href="#使用nginx-反代webui" class="headerlink" title="使用nginx 反代webui"></a>使用nginx 反代webui</h2><p>transmission的webui没有ssl也没法加密码，所以用nginx反代下，性能更高。我安装的nginx是来自<span class="exturl" data-url="aHR0cHM6Ly9zYi5zYi9ibG9nL2RlYmlhbi1pbnN0YWxsLW5naW54LXBocC1teXNxbC8=" title="https://sb.sb/blog/debian-install-nginx-php-mysql/">烧饼博客上的教程<i class="fa fa-external-link"></i></span>，下面是配置文件</p>
+<h2 id="安装 - transmission-rss"><a href="# 安装 - transmission-rss" class="headerlink" title="安装 transmission-rss"></a> 安装 transmission-rss</h2><h2 id="使用 nginx - 反代 webui"><a href="# 使用 nginx - 反代 webui" class="headerlink" title="使用 nginx 反代 webui"></a> 使用 nginx 反代 webui</h2><p>transmission 的 webui 没有 ssl 也没法加密码，所以用 nginx 反代下，性能更高。我安装的 nginx 是来自 < a href="https://sb.sb/blog/debian-install-nginx-php-mysql/" target="_blank" rel="noopener"> 烧饼博客上的教程 ，下面是配置文件 </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">listen 80 default_server;</span><br><span class="line">listen [::]:80 default_server;</span><br><span class="line">server_name example.com;</span><br><span class="line"></span><br><span class="line">location /.well-known/acme-challenge &#123;</span><br><span class="line">root /var/www/letsencrypt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location / &#123;</span><br><span class="line">return 301 https://$host$request_uri;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">listen 443 ssl http2 default_server;</span><br><span class="line">listen [::]:443 ssl http2 default_server;</span><br><span class="line"></span><br><span class="line">server_name example.com;</span><br><span class="line">client_max_body_size 10m;</span><br><span class="line">server_tokens off;</span><br><span class="line"></span><br><span class="line">root /var/www/rutorrent;</span><br><span class="line">index index.html index.htm index.php;</span><br><span class="line"></span><br><span class="line">ssl_dhparam /etc/nginx/ssl/dhparam.pem;</span><br><span class="line"></span><br><span class="line">ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">ssl_ciphers &apos;ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES256-SHA:ECDHE-ECDSA-DES-CBC3-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:DES-CBC3-SHA:!DSS&apos;;</span><br><span class="line">ssl_prefer_server_ciphers on;</span><br><span class="line"></span><br><span class="line">ssl_session_cache shared:SSL:50m;</span><br><span class="line">ssl_session_timeout 1d;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ssl_certificate /etc/nginx/ssl/fullchain.cer;</span><br><span class="line">ssl_certificate_key /etc/nginx/ssl/dl.key;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">add_header Strict-Transport-Security &quot;max-age=63072000; includeSubDomains; preload&quot;;</span><br><span class="line">add_header X-Frame-Options SAMEORIGIN;</span><br><span class="line">add_header X-Content-Type-Options nosniff;</span><br><span class="line">add_header X-XSS-Protection &quot;1; mode=block&quot;;</span><br><span class="line"></span><br><span class="line">location / &#123;</span><br><span class="line">auth_basic &quot;Restricted&quot;;</span><br><span class="line">auth_basic_user_file /etc/nginx/passwd;</span><br><span class="line">proxy_pass  http://127.0.0.1:9091;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~ \.php$ &#123;</span><br><span class="line">fastcgi_pass unix:/run/php/php7.2-fpm.sock;</span><br><span class="line">include snippets/fastcgi-php.conf;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">access_log /var/log/nginx/rutorrent.access.log;</span><br><span class="line">error_log /var/log/nginx/rutorrent.error.log;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>其中，<code>/etc/nginx/passwd</code>的生成方法是<code>printf &quot;user:$(openssl passwd -crypt password)\n&quot; &gt;&gt; /etc/nginx/passwd</code>。</p>
-<h2 id="最后的效果"><a href="#最后的效果" class="headerlink" title="最后的效果"></a>最后的效果</h2><p><img alt="1540133454051" data-src="https://i.loli.net/2018/10/22/5bcda5ea4387b.jpg"></p>
-<p>真香</p>
+<p> 其中，<code>/etc/nginx/passwd</code> 的生成方法是 < code>printf &quot;user:$(openssl passwd -crypt password)\n&quot; &gt;&gt; /etc/nginx/passwd。</p>
+<h2 id="最后的效果"><a href="# 最后的效果" class="headerlink" title="最后的效果"></a> 最后的效果 </h2><p><img alt="1540133454051" data-src="https://i.loli.net/2018/10/22/5bcda5ea4387b.jpg"></p>
+<p> 真香 </p>
 
     </div>
 
@@ -308,7 +307,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://blog.kkren.me/2018/05/transmission-in-linux/" title="使用transmission在linux上搭建pt下载环境">https://blog.kkren.me/2018/05/transmission-in-linux/</a>
+    <a href="https://blog.kkren.me/2018/05/transmission-in-linux/" title="使用 transmission 在 linux 上搭建 pt 下载环境">https://blog.kkren.me/2018/05/transmission-in-linux/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -334,8 +333,8 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2018/10/nginx-configuration/" rel="prev" title="本博客的Nginx优化编译方案">
-                  本博客的Nginx优化编译方案 <i class="fa fa-chevron-right"></i>
+                <a href="/2018/10/nginx-configuration/" rel="prev" title="本博客的 Nginx 优化编译方案">
+                  本博客的 Nginx 优化编译方案 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -382,7 +381,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装transmission与deamon"><span class="nav-number">1.</span> <span class="nav-text">安装transmission与deamon</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装修改版的transmission-webui"><span class="nav-number">2.</span> <span class="nav-text">安装修改版的transmission webui</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-transmission-rss"><span class="nav-number">3.</span> <span class="nav-text">安装 transmission-rss</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用nginx-反代webui"><span class="nav-number">4.</span> <span class="nav-text">使用nginx 反代webui</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后的效果"><span class="nav-number">5.</span> <span class="nav-text">最后的效果</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装 transmission 与 deamon"><span class="nav-number">1.</span> <span class="nav-text"> 安装 transmission 与 deamon</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装修改版的 transmission-webui"><span class="nav-number">2.</span> <span class="nav-text"> 安装修改版的 transmission webui</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装 - transmission-rss"><span class="nav-number">3.</span> <span class="nav-text"> 安装 transmission-rss</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用 nginx - 反代 webui"><span class="nav-number">4.</span> <span class="nav-text"> 使用 nginx 反代 webui</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后的效果"><span class="nav-number">5.</span> <span class="nav-text"> 最后的效果 </span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -408,6 +407,11 @@
       </div>
   </nav>
 </div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
         <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2trcmVu" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;kkren"><i class="fa fa-fw fa-github"></i>GitHub</span>
@@ -481,7 +485,7 @@
   <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span> v7.4.2
+  <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span> v7.5.0
   </div>
 
         
@@ -505,11 +509,11 @@
   
   
   <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="https://cdn.jsdelivr.net/gh/hustcc/canvas-nest.js@1.0.0/canvas-nest.min.js"></script>
-  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
   <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/velocity-animate@1/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>
 <script src="/js/schemes/pisces.js"></script>
 <script src="/js/next-boot.js"></script>
@@ -578,8 +582,6 @@ window.addEventListener('pjax:success', () => {
 
 
 
-
-
   <script src="/js/local-search.js"></script>
 
 
@@ -599,8 +601,6 @@ window.addEventListener('pjax:success', () => {
 
   
 
-  
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
@@ -611,7 +611,7 @@ window.addEventListener('pjax:success', () => {
       shortname: 'kkren',
       url: "https://blog.kkren.me/2018/05/transmission-in-linux/",
       identifier: "2018/05/transmission-in-linux/",
-      title: "使用transmission在linux上搭建pt下载环境",
+      title: "使用 transmission 在 linux 上搭建 pt 下载环境",
     });
   }, window.DisqusJS);
 </script>
