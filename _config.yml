@@ -97,7 +97,5 @@ symbols_count_time:
   total_symbols: true
   total_time: true
   
-netlify_cms:
-  backend:
-    name: git-gateway
-    branch: hexo
+filter_optimize:
+  enable: false
