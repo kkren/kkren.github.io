@@ -140,8 +140,6 @@ quicklink:
 # Dependencies: https://github.com/theme-next/theme-next-reading-progress
 reading_progress:
   enable: true
-  color: "#37c6c0"
-  height: 3px
 
 # DisqusJS
 # Alternative Disqus - Render comment component using Disqus API
