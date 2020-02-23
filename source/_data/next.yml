@@ -4,7 +4,8 @@ footer:
   # Specify the date when the site was setup.
   # If not defined, current year will be used.
   since: 2017
-
+  
+display_updated: false
 # Creative Commons 4.0 International License.
 # See: https://creativecommons.org/share-your-work/licensing-types-examples
 # Available values of license: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero
@@ -144,7 +145,7 @@ quicklink:
 # Dependencies: https://github.com/theme-next/theme-next-reading-progress
 reading_progress:
   enable: true
-  
+
 comments:
   lazyload: true
 
