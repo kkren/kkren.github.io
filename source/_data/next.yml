@@ -68,6 +68,8 @@ social:
   #YouTube: https://youtube.com/yourname || youtube
   #Instagram: https://instagram.com/yourname || instagram
   #Skype: skype:yourname?call|chat || skype
+  Telegram: https://t.me/kkren || telegram
+  RSS: /atom.xml || rss
 
 # Blog rolls
 links:
@@ -142,6 +144,9 @@ quicklink:
 # Dependencies: https://github.com/theme-next/theme-next-reading-progress
 reading_progress:
   enable: true
+  
+comments:
+  lazyload: true
 
 # DisqusJS
 # Alternative Disqus - Render comment component using Disqus API
