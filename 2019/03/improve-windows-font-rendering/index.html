@@ -5,11 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 4.0.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
-  <link rel="alternate" href="/atom.xml" title="kkren's blog" type="application/atom+xml">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
   <meta http-equiv="Cache-Control" content="no-transform">
   <meta http-equiv="Cache-Control" content="no-siteapp">
   <meta name="google-site-verification" content="vquFCjMxdKDUwHpzOfQUCTleb6yxytY87HpT4_MUI4k">
@@ -19,40 +18,10 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 
-
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '7.5.0',
-    exturl: true,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: true,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: 'search.xml',
-    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    },
-    sidebarPadding: 40
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.kkren.me","root":"/","scheme":"Pisces","version":"7.7.1","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
 
   <meta name="description" content="从2k屏的Surface book换到24寸的1080p Dell 屏，Windows 默认的字体渲染几乎不能忍。因为我很穷，买不起高分辨率的显示器，只好研究一些奇怪的方式来优化这电脑的使用体验。">
 <meta name="keywords" content="技术">
@@ -64,7 +33,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;03&#x2F;17&#x2F;5c8e515376ea6.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;03&#x2F;17&#x2F;5c8e567035bd6.png">
-<meta property="og:updated_time" content="2019-11-08T01:12:59.120Z">
+<meta property="og:updated_time" content="2020-02-23T19:08:15.082Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;03&#x2F;17&#x2F;5c8e515376ea6.png">
 
@@ -76,9 +45,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isPost: true
   };
 </script>
 
@@ -86,8 +53,7 @@
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137249788-1"></script>
     <script pjax>
-      var host = window.location.hostname;
-      if (host !== "localhost" || !true) {
+      if (CONFIG.hostname === location.hostname) {
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
@@ -131,6 +97,14 @@
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
   <div class="site-meta">
 
     <div>
@@ -144,11 +118,9 @@
       
   </div>
 
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -181,9 +153,9 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
            placeholder="搜索..." spellcheck="false"
-           type="text" id="search-input">
+           type="search" class="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
@@ -249,7 +221,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-08 09:12:59" itemprop="dateModified" datetime="2019-11-08T09:12:59+08:00">2019-11-08</time>
+                <time title="修改时间：2020-02-24 03:08:15" itemprop="dateModified" datetime="2020-02-24T03:08:15+08:00">2020-02-24</time>
               </span>
 
           <br>
@@ -278,17 +250,17 @@
 
       
         <p> 从 2k 屏的 Surface book 换到 24 寸的 1080p Dell 屏，Windows 默认的字体渲染几乎不能忍。因为我很穷，买不起高分辨率的显示器，只好研究一些奇怪的方式来优化这电脑的使用体验。<a id="more"></a></p>
-<h2 id="noMeiryoUI"><a href="#noMeiryoUI" class="headerlink" title="noMeiryoUI"></a>noMeiryoUI</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1RhdHN1LXN5by9ub01laXJ5b1VJLw==" title="https://github.com/Tatsu-syo/noMeiryoUI/">noMeiryoUI<i class="fa fa-external-link"></i></span> 是我第一个尝试的方案。它可以在不修改系统文件的前提下修改系统的字体。按照网上的推荐，我将字体改成了 < a href="https://github.com/be5invis/Sarasa-Gothic" target="_blank" rel="noopener"> 更纱黑体 。效果还是有一点的，但是 Windows 字体最大的问题 —— 笔画的锯齿非常明显，并没有得到改善。</p>
-<h2 id="Mactype"><a href="#Mactype" class="headerlink" title="Mactype"></a>Mactype</h2><p> 在沉寂了许久以后，最新的 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Nub3dpZTIwMDAvbWFjdHlwZS9yZWxlYXNlcy90YWcvMjAxOC4xLWJldGE1" title="https://github.com/snowie2000/mactype/releases/tag/2018.1-beta5">MacType 2018.1-beta5<i class="fa fa-external-link"></i></span> 已经大大改善了兼容性问题。现在 Mactype 已经可以支持包括 Chrome 在内的大多数 DirectWrite 程序。</p>
-<p><img alt="Snipaste_2019-03-17_21-52-33.png" data-src="https://i.loli.net/2019/03/17/5c8e515376ea6.png"></p>
+<h2 id="noMeiryoUI"><a href="#noMeiryoUI" class="headerlink" title="noMeiryoUI"></a>noMeiryoUI</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1RhdHN1LXN5by9ub01laXJ5b1VJLw==" title="https://github.com/Tatsu-syo/noMeiryoUI/">noMeiryoUI<i class="fa fa-external-link"></i></span> 是我第一个尝试的方案。它可以在不修改系统文件的前提下修改系统的字体。按照网上的推荐，我将字体改成了 < span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2JlNWludmlzL1NhcmFzYS1Hb3RoaWM=" title="https://github.com/be5invis/Sarasa-Gothic"> 更纱黑体 < i class="fa fa-external-link"></i></span>。效果还是有一点的，但是 Windows 字体最大的问题 —— 笔画的锯齿非常明显，并没有得到改善。</p>
+<h2 id="Mactype"><a href="#Mactype" class="headerlink" title="Mactype"></a>Mactype</h2><p > 在沉寂了许久以后，最新的 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Nub3dpZTIwMDAvbWFjdHlwZS9yZWxlYXNlcy90YWcvMjAxOC4xLWJldGE1" title="https://github.com/snowie2000/mactype/releases/tag/2018.1-beta5">MacType 2018.1-beta5<i class="fa fa-external-link"></i></span> 已经大大改善了兼容性问题。现在 Mactype 已经可以支持包括 Chrome 在内的大多数 DirectWrite 程序。</p>
+<p><img data-src="https://i.loli.net/2019/03/17/5c8e515376ea6.png" alt="Snipaste_2019-03-17_21-52-33.png"></p>
 <p>Mactype 的加载方式，我选择的服务加载。第一次使用的时候可以使用托盘加载，没有问题再切换成其他模式。使用托盘加载时我有时会遇到 Chrome 不加载 Mactype 的问题，不知道是不是 bug。</p>
-<p>Mactype 的配置推荐 <span class="exturl" data-url="aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vSmFtZXNpdHMvNmE1OGExYjA4ZDVjZDA5YTk0YTAyZjMwZGRhZjBlMTM=" title="https://gist.github.com/Jamesits/6a58a1b08d5cd09a94a02f30ddaf0e13">James 大佬 <i class="fa fa-external-link"></i></span> 的。我在他的配置上又做了一些修改。从 L324 到 L282 我全部注释了，因为加载这些进程在我这里没有遇到什么奇怪的问题，而且文件管理器毕竟还是经常要用到的。我也没有把 Chrome 中的雅黑替换成思源黑体，因为我也没有遇到奇怪的 bug。然后，在 Chrome 中用 XStyle 之类的插件加载这个 <span class="exturl" data-url="aHR0cHM6Ly91c2Vyc3R5bGVzLm9yZy9zdHlsZXMvMTU5NTQ5L3RoZW1l" title="https://userstyles.org/styles/159549/theme">CSS<i class="fa fa-external-link"></i></span>。然后，[ExcludeSub] 中加入了 origin 和 uplay 的进程，这两个程序替换字体后图标都变成了方框。</p>
-<h3 id="Exclude - 呢？这个配置有什么用？"><a href="#Exclude - 呢？这个配置有什么用？" class="headerlink" title="[Exclude] 呢？这个配置有什么用？"></a>[Exclude] 呢？这个配置有什么用？</h3><p> 答案就是没有用，作者在 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Nub3dpZTIwMDAvbWFjdHlwZS9pc3N1ZXMvMzMyI2lzc3VlY29tbWVudC0zMTM1NzI3MDY=" title="https://github.com/snowie2000/mactype/issues/332#issuecomment-313572706">Issue<i class="fa fa-external-link"></i></span> 中解释过了。</p>
+<p>Mactype 的配置推荐 <span class="exturl" data-url="aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vSmFtZXNpdHMvNmE1OGExYjA4ZDVjZDA5YTk0YTAyZjMwZGRhZjBlMTM=" title="https://gist.github.com/Jamesits/6a58a1b08d5cd09a94a02f30ddaf0e13">James 大佬 < i class="fa fa-external-link"></i></span > 的。我在他的配置上又做了一些修改。从 L324 到 L282 我全部注释了，因为加载这些进程在我这里没有遇到什么奇怪的问题，而且文件管理器毕竟还是经常要用到的。我也没有把 Chrome 中的雅黑替换成思源黑体，因为我也没有遇到奇怪的 bug。然后，在 Chrome 中用 XStyle 之类的插件加载这个 <span class="exturl" data-url="aHR0cHM6Ly91c2Vyc3R5bGVzLm9yZy9zdHlsZXMvMTU5NTQ5L3RoZW1l" title="https://userstyles.org/styles/159549/theme">CSS<i class="fa fa-external-link"></i></span>。然后，[ExcludeSub] 中加入了 origin 和 uplay 的进程，这两个程序替换字体后图标都变成了方框。</p>
+<h3 id="Exclude - 呢？这个配置有什么用？"><a href="#Exclude - 呢？这个配置有什么用？" class="headerlink" title="[Exclude] 呢？这个配置有什么用？"></a>[Exclude] 呢？这个配置有什么用？</h3><p > 答案就是没有用，作者在 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Nub3dpZTIwMDAvbWFjdHlwZS9pc3N1ZXMvMzMyI2lzc3VlY29tbWVudC0zMTM1NzI3MDY=" title="https://github.com/snowie2000/mactype/issues/332#issuecomment-313572706">Issue<i class="fa fa-external-link"></i></span> 中解释过了。</p>
 <blockquote>
 <p>[Exclude] - does not exist.</p>
 </blockquote>
-<h3 id="许多配置不生效？"><a href="# 许多配置不生效？" class="headerlink" title="许多配置不生效？"></a> 许多配置不生效？</h3><p> 很有可能是文件编码的问题。从 GitHub 上下载的文件默认是 UTF-8 编码，但是 Mactype 识别的是 GB 2312 编码。需要你自己用文本编辑器转换一下。</p>
-<h3 id="效果"><a href="# 效果" class="headerlink" title="效果"></a> 效果 </h3><p><img alt="Snipaste_2019-03-17_22-15-04.png" data-src="https://i.loli.net/2019/03/17/5c8e567035bd6.png"></p>
+<h3 id="许多配置不生效？"><a href="# 许多配置不生效？" class="headerlink" title="许多配置不生效？"></a > 许多配置不生效？</h3><p > 很有可能是文件编码的问题。从 GitHub 上下载的文件默认是 UTF-8 编码，但是 Mactype 识别的是 GB 2312 编码。需要你自己用文本编辑器转换一下。</p>
+<h3 id="效果"><a href="# 效果" class="headerlink" title="效果"></a > 效果 </h3><p><img data-src="https://i.loli.net/2019/03/17/5c8e567035bd6.png" alt="Snipaste_2019-03-17_22-15-04.png"></p>
 <p>Mactype 的渲染策略大概是，当分辨率不足以清晰的渲染字体的时候，用一团灰色的东西来渲染对应的笔画，说的简单点就是抗锯齿。对于天天看中文的人来说，不用看清每一个笔画就能看懂对应的字，而且这应该是分辨率不足的情况下最大程度模仿印刷效果的方式，比微软选择的 Hinting 好很多（大概）。</p>
 
     </div>
@@ -321,21 +293,18 @@
 
         
 
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-                <a href="/2018/12/hexo-with-travis/" rel="next" title="持续集成部署 hexo">
-                  <i class="fa fa-chevron-left"></i> 持续集成部署 hexo
-                </a>
-            </div>
 
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-                <a href="/2019/08/Dell-Inspiron-7591-review/" rel="prev" title="XPS 15 杀手？ - Dell Inspiron 7591 体验报告 by kotomei">
-                  XPS 15 杀手？ - Dell Inspiron 7591 体验报告 by kotomei <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/12/hexo-with-travis/" rel="prev" title="持续集成部署 hexo">
+      <i class="fa fa-chevron-left"></i> 持续集成部署 hexo
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/08/Dell-Inspiron-7591-review/" rel="next" title="XPS 15 杀手？ - Dell Inspiron 7591 体验报告 by kotomei">
+      XPS 15 杀手？ - Dell Inspiron 7591 体验报告 by kotomei <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
     
   </article>
@@ -349,12 +318,34 @@
           </div>
           
     
-  <div class="comments" id="comments">
+  <div class="comments">
     <div id="disqus_thread">
       <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
     </div>
   </div>
   
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -385,8 +376,8 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <img class="site-author-image" itemprop="image" alt="kkren"
-    src="/images/avatar.webp">
+    <img class="site-author-image" itemprop="image" alt="kkren"
+      src="/images/avatar.webp">
   <p class="site-author-name" itemprop="name">kkren</p>
   <div class="site-description" itemprop="description">kkren 写 bug 的地方</div>
 </div>
@@ -405,20 +396,21 @@
       </div>
   </nav>
 </div>
-  <div class="feed-link motion-element">
-    <a href="/atom.xml" rel="alternate">
-      <i class="fa fa-rss"></i>RSS
-    </a>
-  </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2trcmVu" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;kkren"><i class="fa fa-fw fa-github"></i>GitHub</span>
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2trcmVu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;kkren"><i class="fa fa-fw fa-github"></i>GitHub</span>
       </span>
       <span class="links-of-author-item">
-        <span class="exturl" data-url="bWFpbHRvOmlAa2tyZW4ubWU=" title="E-Mail &amp;rarr; mailto:i@kkren.me"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
+        <span class="exturl" data-url="bWFpbHRvOmlAa2tyZW4ubWU=" title="E-Mail → mailto:i@kkren.me"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
       </span>
       <span class="links-of-author-item">
-        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9ra3JlbjAwMQ==" title="Twitter &amp;rarr; https:&#x2F;&#x2F;twitter.com&#x2F;kkren001"><i class="fa fa-fw fa-twitter"></i>Twitter</span>
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9ra3JlbjAwMQ==" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;kkren001"><i class="fa fa-fw fa-twitter"></i>Twitter</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90Lm1lL2trcmVu" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;kkren"><i class="fa fa-fw fa-telegram"></i>Telegram</span>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
       </span>
   </div>
   <div class="cc-license motion-element" itemprop="license">
@@ -436,13 +428,16 @@
           <span class="exturl" data-url="aHR0cHM6Ly93d3cubXJsb25nLmNjLw==" title="https:&#x2F;&#x2F;www.mrlong.cc&#x2F;">Mrlong</span>
         </li>
         <li class="links-of-blogroll-item">
-          <span class="exturl" data-url="aHR0cHM6Ly9rb3RvbWVpLm1vZQ==" title="https:&#x2F;&#x2F;kotomei.moe">kotomei</span>
+          <span class="exturl" data-url="aHR0cHM6Ly9rb3RvbWVpLm1vZS8=" title="https:&#x2F;&#x2F;kotomei.moe&#x2F;">kotomei</span>
         </li>
         <li class="links-of-blogroll-item">
-          <span class="exturl" data-url="aHR0cHM6Ly93d3cuMzIwbmxlLmNvbQ==" title="https:&#x2F;&#x2F;www.320nle.com">320印象</span>
+          <span class="exturl" data-url="aHR0cHM6Ly93d3cuMzIwbmxlLmNvbS8=" title="https:&#x2F;&#x2F;www.320nle.com&#x2F;">320印象</span>
         </li>
         <li class="links-of-blogroll-item">
           <span class="exturl" data-url="aHR0cHM6Ly9yY2FyaWNreS5jb20v" title="https:&#x2F;&#x2F;rcaricky.com&#x2F;">温哥华首富</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmxpcmljaS5tb2Uv" title="https:&#x2F;&#x2F;blog.lirici.moe&#x2F;">Lirici</span>
         </li>
     </ul>
   </div>
@@ -464,7 +459,7 @@
 <div class="copyright">
   
   &copy; 2017 – 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -483,7 +478,7 @@
   <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span> v7.5.0
+  <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span> v7.7.1
   </div>
 
         
@@ -495,11 +490,6 @@
 
 
 
-
-
-
-
-        
       </div>
     </footer>
   </div>
@@ -553,7 +543,7 @@ window.addEventListener('pjax:success', () => {
       script.async = false;
     }
     if (element.getAttribute('pjax') !== null) {
-      element.setAttribute('pjax', '');
+      script.setAttribute('pjax', '');
     }
     if (code !== '') {
       script.appendChild(document.createTextNode(code));
@@ -565,6 +555,7 @@ window.addEventListener('pjax:success', () => {
   if (CONFIG.motion.enable) {
     NexT.motion.integrator
       .init()
+      .add(NexT.motion.middleWares.subMenu)
       .add(NexT.motion.middleWares.postList)
       .bootstrap();
   }
@@ -594,24 +585,35 @@ window.addEventListener('pjax:success', () => {
 
 
     <div id="pjax">
-
   
 
   
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@1.0.0/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout: 3000,
+        priority: true,
+        ignores: [uri => uri.includes('#'),uri => uri == 'https://blog.kkren.me/2019/03/improve-windows-font-rendering/',]
+      });
+      });
+  </script>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
   NexT.utils.getScript('https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
     window.dsqjs = new DisqusJS({
-      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
-      apikey: 'oZARW7A9708Y8U57uDmTIhUVFJCLUruDOkKDIq0JrgHv3ooBrxMU9oQKEK8rS7rb',
-      shortname: 'kkren',
-      url: "https://blog.kkren.me/2019/03/improve-windows-font-rendering/",
+      api       : 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey    : 'oZARW7A9708Y8U57uDmTIhUVFJCLUruDOkKDIq0JrgHv3ooBrxMU9oQKEK8rS7rb',
+      shortname : 'kkren',
+      url       : "https://blog.kkren.me/2019/03/improve-windows-font-rendering/",
       identifier: "2019/03/improve-windows-font-rendering/",
-      title: "Windows 字体渲染优化",
+      title     : "Windows 字体渲染优化",
     });
   }, window.DisqusJS);
+});
 </script>
 
     </div>

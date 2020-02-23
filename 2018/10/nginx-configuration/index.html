@@ -5,11 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 4.0.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
-  <link rel="alternate" href="/atom.xml" title="kkren's blog" type="application/atom+xml">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
   <meta http-equiv="Cache-Control" content="no-transform">
   <meta http-equiv="Cache-Control" content="no-siteapp">
   <meta name="google-site-verification" content="vquFCjMxdKDUwHpzOfQUCTleb6yxytY87HpT4_MUI4k">
@@ -19,40 +18,10 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 
-
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '7.5.0',
-    exturl: true,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: true,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: 'search.xml',
-    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    },
-    sidebarPadding: 40
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.kkren.me","root":"/","scheme":"Pisces","version":"7.7.1","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
 
   <meta name="description" content="在编译的过程中，参考了 imququ 等大佬的资料，在最新的 mainline Nginx 之上添加了 ngx_brotli 模块并使用最新的 OpenSSL 编译。">
 <meta property="og:type" content="article">
@@ -62,7 +31,7 @@
 <meta property="og:description" content="在编译的过程中，参考了 imququ 等大佬的资料，在最新的 mainline Nginx 之上添加了 ngx_brotli 模块并使用最新的 OpenSSL 编译。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2018&#x2F;11&#x2F;11&#x2F;5be7d80a4ef45.png">
-<meta property="og:updated_time" content="2019-11-08T01:12:59.120Z">
+<meta property="og:updated_time" content="2020-02-23T19:08:15.082Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2018&#x2F;11&#x2F;11&#x2F;5be7d80a4ef45.png">
 
@@ -74,9 +43,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isPost: true
   };
 </script>
 
@@ -84,8 +51,7 @@
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137249788-1"></script>
     <script pjax>
-      var host = window.location.hostname;
-      if (host !== "localhost" || !true) {
+      if (CONFIG.hostname === location.hostname) {
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
@@ -129,6 +95,14 @@
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
   <div class="site-meta">
 
     <div>
@@ -142,11 +116,9 @@
       
   </div>
 
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -179,9 +151,9 @@
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
            placeholder="搜索..." spellcheck="false"
-           type="text" id="search-input">
+           type="search" class="search-input">
   </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
@@ -247,7 +219,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-08 09:12:59" itemprop="dateModified" datetime="2019-11-08T09:12:59+08:00">2019-11-08</time>
+                <time title="修改时间：2020-02-24 03:08:15" itemprop="dateModified" datetime="2020-02-24T03:08:15+08:00">2020-02-24</time>
               </span>
 
           <br>
@@ -276,30 +248,30 @@
 
       
         <p> 在编译的过程中，参考了 <span class="exturl" data-url="aHR0cHM6Ly9pbXF1cXUuY29tL3Bvc3QvZW5hYmxlLXRscy0xLTMuaHRtbA==" title="https://imququ.com/post/enable-tls-1-3.html">imququ<i class="fa fa-external-link"></i></span> 等大佬的资料，在最新的 mainline Nginx 之上添加了 ngx_brotli 模块并使用最新的 OpenSSL 编译。<a id="more"></a></p>
-<h2 id="编译 - Nginx"><a href="# 编译 - Nginx" class="headerlink" title="编译 Nginx"></a> 编译 Nginx</h2><p> 我服务器的环境是  debian 9，在编译前先安装依赖。</p>
+<h2 id="编译 - Nginx"><a href="# 编译 - Nginx" class="headerlink" title="编译 Nginx"></a > 编译 Nginx</h2><p > 我服务器的环境是  debian 9，在编译前先安装依赖。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install build-essential libpcre3 libpcre3-dev zlib1g-dev unzip git</span><br></pre></td></tr></table></figure>
 
-<p> 然后下载并解压 Nginx 和其他模块 </p>
+<p > 然后下载并解压 Nginx 和其他模块 </p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Nginx</span></span><br><span class="line">wget -c http://nginx.org/download/nginx-1.15.6.tar.gz</span><br><span class="line">tar zxf nginx-1.15.6.tar.gz</span><br><span class="line"><span class="comment"># OpenSSL</span></span><br><span class="line">wget -c  https://github.com/openssl/openssl/archive/OpenSSL_1_1_1.tar.gz</span><br><span class="line">tar xzf OpenSSL_1_1_1.tar.gz</span><br><span class="line">mv openssl-OpenSSL_1_1_1 openssl</span><br><span class="line"><span class="comment"># ngx_brotli</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/google/ngx_brotli.git</span><br><span class="line"><span class="built_in">cd</span> ngx_brotli</span><br><span class="line">git submodule update --init</span><br><span class="line"><span class="built_in">cd</span> ../</span><br></pre></td></tr></table></figure>
 
-<p> 开始编译 </p>
+<p > 开始编译 </p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd nginx-1.15.6</span><br><span class="line">./configure --add-module=../ngx_brotli --with-openssl=../openssl --with-openssl-opt='enable-tls1_3' --with-http_v2_module --with-http_ssl_module --with-http_gzip_static_module</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
 
-<p> 如果需要升级 Nginx ，不要执行 <code>sudo make install</code> ，执行下面的命令。</p>
+<p > 如果需要升级 Nginx ，不要执行 <code>sudo make install</code> ，执行下面的命令。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/local/nginx/sbin/nginx/usr/local/nginx/sbin/nginx.old</span><br><span class="line"><span class="meta">#</span><span class="bash"> 备份 Nginx</span></span><br><span class="line">cp -f objs/nginx/usr/local/nginx/sbin/nginx</span><br><span class="line">nginx -t</span><br><span class="line"><span class="meta">#</span><span class="bash"> 解决上一条命令出现的问题后继续 </span></span><br><span class="line">make upgrade</span><br></pre></td></tr></table></figure>
 
-<h2 id="配置 - Nginx"><a href="# 配置 - Nginx" class="headerlink" title="配置 Nginx"></a> 配置 Nginx</h2><p> 安装后 Nginx 和配置在 <code>/usr/local/nginx/</code> 下面。首先打开 <code>conf/nginx.conf</code></p>
+<h2 id="配置 - Nginx"><a href="# 配置 - Nginx" class="headerlink" title="配置 Nginx"></a > 配置 Nginx</h2><p > 安装后 Nginx 和配置在 <code>/usr/local/nginx/</code> 下面。首先打开 <code>conf/nginx.conf</code></p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sendfile</span>        <span class="literal">on</span>;</span><br><span class="line"><span class="attribute">tcp_nopush</span>     	<span class="literal">on</span>;</span><br><span class="line"><span class="attribute">tcp_nodelay</span>    	<span class="literal">on</span>;</span><br></pre></td></tr></table></figure>
 
-<p> 这三行，原来注释掉的改成 on 。</p>
+<p > 这三行，原来注释掉的改成 on 。</p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">gzip</span>			<span class="literal">on</span>;</span><br><span class="line"><span class="attribute">gzip_vary</span>     	<span class="literal">on</span>;</span><br><span class="line"><span class="attribute">gzip_comp_level</span>	<span class="number">6</span>;</span><br><span class="line"><span class="attribute">gzip_buffers</span>   	<span class="number">16</span> <span class="number">8k</span>;</span><br><span class="line"><span class="attribute">gzip_min_length</span>	<span class="number">1000</span>;</span><br><span class="line"><span class="attribute">gzip_proxied</span>   	any;</span><br><span class="line"><span class="attribute">gzip_disable</span>   	<span class="string">"msie6"</span>;</span><br><span class="line"><span class="attribute">gzip_http_version</span>	<span class="number">1</span>.<span class="number">0</span>;</span><br><span class="line"><span class="attribute">gzip_types</span>    	text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript application/javascript image/svg+xml;</span><br><span class="line">    </span><br><span class="line"><span class="attribute">brotli</span>			<span class="literal">on</span>;</span><br><span class="line"><span class="attribute">brotli_comp_level</span>	<span class="number">6</span>;</span><br><span class="line"><span class="attribute">brotli_types</span>	text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript application/javascript image/svg+xml;</span><br></pre></td></tr></table></figure>
 
-<p> 启用 gzip 和 brotli 压缩。然后创建一个网站的配置。</p>
+<p > 启用 gzip 和 brotli 压缩。然后创建一个网站的配置。</p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ssl_protocols</span>	TLSv1.<span class="number">3</span> TLSv1.<span class="number">2</span>;</span><br><span class="line"><span class="attribute">ssl_ciphers</span>		TLS13-AES-<span class="number">256</span>-GCM-SHA384:TLS13-CHACHA20-POLY1305-SHA256:TLS13-AES-<span class="number">128</span>-GCM-SHA256:TLS13-AES-<span class="number">128</span>-CCM-<span class="number">8</span>-SHA256:TLS13-AES-<span class="number">128</span>-CCM-SHA256:EECDH+CHACHA20:EECDH+CHACHA20-draft:EECDH+ECDSA+AES128:EECDH+aRSA+AES128:RSA+AES128:EECDH+ECDSA+AES256:EECDH+aRSA+AES256:RSA+AES256:EECDH;</span><br><span class="line"><span class="attribute">add_header</span>		Strict-Transport-Security <span class="string">"max-age=63072000; includeSubDomains; preload"</span>;</span><br><span class="line"><span class="attribute">add_header</span>		X-Frame-Options deny;</span><br><span class="line"><span class="attribute">add_header</span>		X-Content-Type-Options nosniff;</span><br></pre></td></tr></table></figure>
 
-<p> 重点就是加密算法的选择和 HSTS 。</p>
-<h2 id="其他的优化"><a href="# 其他的优化" class="headerlink" title="其他的优化"></a> 其他的优化 </h2><p> 博客的所有文件都会用 service worker 永久缓存在读者的电脑上。直接安装 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3pvdW1pYW9qaWFuZy9oZXhvLXNlcnZpY2Utd29ya2Vy" title="https://github.com/zoumiaojiang/hexo-service-worker">hexo-service-worker<i class="fa fa-external-link"></i></span> 插件即可。</p>
-<p> 博客的图片放在 <span class="exturl" data-url="aHR0cHM6Ly9zbS5tcy8=" title="https://sm.ms/">sm.ms<i class="fa fa-external-link"></i></span> 图床上，然后使用 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1JvYmluLWZyb250L2hleG8tbGF6eWxvYWQ=" title="https://github.com/Robin-front/hexo-lazyload">hexo-lazyload<i class="fa fa-external-link"></i></span> 制作加载时的缩略图。放上一张首次加载首页的耗时图。<img alt="加载图" data-src="https://i.loli.net/2018/11/11/5be7d80a4ef45.png"></p>
+<p > 重点就是加密算法的选择和 HSTS 。</p>
+<h2 id="其他的优化"><a href="# 其他的优化" class="headerlink" title="其他的优化"></a > 其他的优化 </h2><p > 博客的所有文件都会用 service worker 永久缓存在读者的电脑上。直接安装 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3pvdW1pYW9qaWFuZy9oZXhvLXNlcnZpY2Utd29ya2Vy" title="https://github.com/zoumiaojiang/hexo-service-worker">hexo-service-worker<i class="fa fa-external-link"></i></span> 插件即可。</p>
+<p > 博客的图片放在 <span class="exturl" data-url="aHR0cHM6Ly9zbS5tcy8=" title="https://sm.ms/">sm.ms<i class="fa fa-external-link"></i></span> 图床上，然后使用 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1JvYmluLWZyb250L2hleG8tbGF6eWxvYWQ=" title="https://github.com/Robin-front/hexo-lazyload">hexo-lazyload<i class="fa fa-external-link"></i></span> 制作加载时的缩略图。放上一张首次加载首页的耗时图。<img data-src="https://i.loli.net/2018/11/11/5be7d80a4ef45.png" alt="加载图"></p>
 
     </div>
 
@@ -328,21 +300,18 @@
 
         
 
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-                <a href="/2018/05/transmission-in-linux/" rel="next" title="使用 transmission 在 linux 上搭建 pt 下载环境">
-                  <i class="fa fa-chevron-left"></i> 使用 transmission 在 linux 上搭建 pt 下载环境
-                </a>
-            </div>
 
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-                <a href="/2018/12/hexo-with-travis/" rel="prev" title="持续集成部署 hexo">
-                  持续集成部署 hexo <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/05/transmission-in-linux/" rel="prev" title="使用 transmission 在 linux 上搭建 pt 下载环境">
+      <i class="fa fa-chevron-left"></i> 使用 transmission 在 linux 上搭建 pt 下载环境
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/12/hexo-with-travis/" rel="next" title="持续集成部署 hexo">
+      持续集成部署 hexo <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
     
   </article>
@@ -356,12 +325,34 @@
           </div>
           
     
-  <div class="comments" id="comments">
+  <div class="comments">
     <div id="disqus_thread">
       <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
     </div>
   </div>
   
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -392,8 +383,8 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <img class="site-author-image" itemprop="image" alt="kkren"
-    src="/images/avatar.webp">
+    <img class="site-author-image" itemprop="image" alt="kkren"
+      src="/images/avatar.webp">
   <p class="site-author-name" itemprop="name">kkren</p>
   <div class="site-description" itemprop="description">kkren 写 bug 的地方</div>
 </div>
@@ -412,20 +403,21 @@
       </div>
   </nav>
 </div>
-  <div class="feed-link motion-element">
-    <a href="/atom.xml" rel="alternate">
-      <i class="fa fa-rss"></i>RSS
-    </a>
-  </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2trcmVu" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;kkren"><i class="fa fa-fw fa-github"></i>GitHub</span>
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2trcmVu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;kkren"><i class="fa fa-fw fa-github"></i>GitHub</span>
       </span>
       <span class="links-of-author-item">
-        <span class="exturl" data-url="bWFpbHRvOmlAa2tyZW4ubWU=" title="E-Mail &amp;rarr; mailto:i@kkren.me"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
+        <span class="exturl" data-url="bWFpbHRvOmlAa2tyZW4ubWU=" title="E-Mail → mailto:i@kkren.me"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
       </span>
       <span class="links-of-author-item">
-        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9ra3JlbjAwMQ==" title="Twitter &amp;rarr; https:&#x2F;&#x2F;twitter.com&#x2F;kkren001"><i class="fa fa-fw fa-twitter"></i>Twitter</span>
+        <span class="exturl" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9ra3JlbjAwMQ==" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;kkren001"><i class="fa fa-fw fa-twitter"></i>Twitter</span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly90Lm1lL2trcmVu" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;kkren"><i class="fa fa-fw fa-telegram"></i>Telegram</span>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
       </span>
   </div>
   <div class="cc-license motion-element" itemprop="license">
@@ -443,13 +435,16 @@
           <span class="exturl" data-url="aHR0cHM6Ly93d3cubXJsb25nLmNjLw==" title="https:&#x2F;&#x2F;www.mrlong.cc&#x2F;">Mrlong</span>
         </li>
         <li class="links-of-blogroll-item">
-          <span class="exturl" data-url="aHR0cHM6Ly9rb3RvbWVpLm1vZQ==" title="https:&#x2F;&#x2F;kotomei.moe">kotomei</span>
+          <span class="exturl" data-url="aHR0cHM6Ly9rb3RvbWVpLm1vZS8=" title="https:&#x2F;&#x2F;kotomei.moe&#x2F;">kotomei</span>
         </li>
         <li class="links-of-blogroll-item">
-          <span class="exturl" data-url="aHR0cHM6Ly93d3cuMzIwbmxlLmNvbQ==" title="https:&#x2F;&#x2F;www.320nle.com">320印象</span>
+          <span class="exturl" data-url="aHR0cHM6Ly93d3cuMzIwbmxlLmNvbS8=" title="https:&#x2F;&#x2F;www.320nle.com&#x2F;">320印象</span>
         </li>
         <li class="links-of-blogroll-item">
           <span class="exturl" data-url="aHR0cHM6Ly9yY2FyaWNreS5jb20v" title="https:&#x2F;&#x2F;rcaricky.com&#x2F;">温哥华首富</span>
+        </li>
+        <li class="links-of-blogroll-item">
+          <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmxpcmljaS5tb2Uv" title="https:&#x2F;&#x2F;blog.lirici.moe&#x2F;">Lirici</span>
         </li>
     </ul>
   </div>
@@ -471,7 +466,7 @@
 <div class="copyright">
   
   &copy; 2017 – 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -490,7 +485,7 @@
   <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> 强力驱动 v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span> v7.5.0
+  <div class="theme-info">主题 – <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span> v7.7.1
   </div>
 
         
@@ -502,11 +497,6 @@
 
 
 
-
-
-
-
-        
       </div>
     </footer>
   </div>
@@ -560,7 +550,7 @@ window.addEventListener('pjax:success', () => {
       script.async = false;
     }
     if (element.getAttribute('pjax') !== null) {
-      element.setAttribute('pjax', '');
+      script.setAttribute('pjax', '');
     }
     if (code !== '') {
       script.appendChild(document.createTextNode(code));
@@ -572,6 +562,7 @@ window.addEventListener('pjax:success', () => {
   if (CONFIG.motion.enable) {
     NexT.motion.integrator
       .init()
+      .add(NexT.motion.middleWares.subMenu)
       .add(NexT.motion.middleWares.postList)
       .bootstrap();
   }
@@ -601,24 +592,35 @@ window.addEventListener('pjax:success', () => {
 
 
     <div id="pjax">
-
   
 
   
+  <script src="https://cdn.jsdelivr.net/npm/quicklink@1.0.0/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout: 3000,
+        priority: true,
+        ignores: [uri => uri.includes('#'),uri => uri == 'https://blog.kkren.me/2018/10/nginx-configuration/',]
+      });
+      });
+  </script>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
 
 <script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
   NexT.utils.getScript('https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
     window.dsqjs = new DisqusJS({
-      api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
-      apikey: 'oZARW7A9708Y8U57uDmTIhUVFJCLUruDOkKDIq0JrgHv3ooBrxMU9oQKEK8rS7rb',
-      shortname: 'kkren',
-      url: "https://blog.kkren.me/2018/10/nginx-configuration/",
+      api       : 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey    : 'oZARW7A9708Y8U57uDmTIhUVFJCLUruDOkKDIq0JrgHv3ooBrxMU9oQKEK8rS7rb',
+      shortname : 'kkren',
+      url       : "https://blog.kkren.me/2018/10/nginx-configuration/",
       identifier: "2018/10/nginx-configuration/",
-      title: "本博客的 Nginx 优化编译方案",
+      title     : "本博客的 Nginx 优化编译方案",
     });
   }, window.DisqusJS);
+});
 </script>
 
     </div>
