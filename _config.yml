@@ -29,13 +29,7 @@ i18n_dir: :lang
 skip_render: "_redirects"
 include: "_redirects"
 
-favicon:
-  small: /images/favicon-16x16-next.png
-  medium: /images/favicon-32x32-next.png
-  apple_touch_icon: /images/apple-touch-icon.png
-  safari_pinned_tab: /images/safari-pinned-tab.svg
-  android_manifest: /images/site.webmanifest
-  ms_browserconfig: /images/browserconfig.xml
+
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -49,10 +43,10 @@ post_asset_folder: false
 relative_link: false
 future: true
 highlight:
+  enable: false
+prismjs:
   enable: true
-  line_number: true
-  auto_detect: false
-  tab_replace:
+
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')

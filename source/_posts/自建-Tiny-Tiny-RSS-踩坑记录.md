@@ -26,7 +26,7 @@ sudo docker-compose up -d
 
 另外，TTRSS容器内部有一个文件夹用于存放站点的 favicon，这个文件夹并没有被持久化，所以如果重新创建容器，就会丢失这些favicon。需要等待12个小时才会重新刷新。我们可以创建一个volume来持久化这些favicon。修改后的docker-compose.yml如下（部分service省去）：
 
-```dockerfile
+```yaml
 version: "3"
 services:
   service.rss:
@@ -92,7 +92,7 @@ mercury是一个用于全文输出订阅源的插件，使用下来效果还是�
 
 #### fever
 
-许多第三方客户端都需要 fever api 的支持。在`偏好设置 - Fever Emulation `中设置密码即可启用fever。此密码可以与账户密码相同也可以不同。注意使用fever api不能编辑、添加订阅源，也不支持分类嵌套等功能。 
+许多第三方客户端都需要 fever api 的支持。在`偏好设置 - Fever Emulation`中设置密码即可启用fever。此密码可以与账户密码相同也可以不同。注意使用fever api不能编辑、添加订阅源，也不支持分类嵌套等功能。 
 
 ## 订阅源
 

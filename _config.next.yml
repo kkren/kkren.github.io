@@ -82,7 +82,13 @@ links:
   温哥华首富: https://rcaricky.com/
   Lirici: https://blog.lirici.moe/
   
-
+favicon:
+  small: /images/favicon-16x16.png
+  medium: /images/favicon-32x32.png
+  apple_touch_icon: /images/apple-touch-icon.png
+  safari_pinned_tab: /images/safari-pinned-tab.svg
+  android_manifest: /images/site.webmanifest
+  ms_browserconfig: /images/browserconfig.xml
 
 # Sidebar Avatar
 avatar:
@@ -105,9 +111,9 @@ save_scroll: true
 # ---------------------------------------------------------------
 
 codeblock:
-  theme:
-    light: monokai-sublime
-    dark: monokai-sublime
+  prism:
+    light: prism
+    dark: prism
 
 
 # ---------------------------------------------------------------
