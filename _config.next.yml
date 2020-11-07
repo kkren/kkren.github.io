@@ -61,18 +61,18 @@ scheme: Pisces
 # Value before `||` delimeter is the target permalink.
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
 social:
-  GitHub: https://github.com/kkren || github
-  E-Mail: mailto:i@kkren.me || envelope
+  GitHub: https://github.com/kkren || fab fa-github
+  E-Mail: mailto:i@kkren.me || fa fa-envelope
   #Google: https://plus.google.com/yourname || google
-  Twitter: https://twitter.com/kkren001 || twitter
+  Twitter: https://twitter.com/kkren001 || fab fa-twitter
   #FB Page: https://www.facebook.com/yourname || facebook
   #VK Group: https://vk.com/yourname || vk
   #StackOverflow: https://stackoverflow.com/yourname || stack-overflow
   #YouTube: https://youtube.com/yourname || youtube
   #Instagram: https://instagram.com/yourname || instagram
   #Skype: skype:yourname?call|chat || skype
-  Telegram: https://t.me/kkren || telegram
-  RSS: /atom.xml || rss
+  Telegram: https://t.me/kkren || fab fa-telegram
+  RSS: /atom.xml || fas fa-rss
 
 # Blog rolls
 links:
@@ -104,10 +104,10 @@ save_scroll: true
 # Misc Theme Settings
 # ---------------------------------------------------------------
 
-# Code Highlight theme
-# Available values: normal | night | night eighties | night blue | night bright
-# https://github.com/chriskempson/tomorrow-theme
-highlight_theme: night
+codeblock:
+  theme:
+    light: monokai-sublime
+    dark: monokai-sublime
 
 
 # ---------------------------------------------------------------
