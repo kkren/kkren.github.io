@@ -27,7 +27,6 @@ sudo docker-compose up -d
 另外，TTRSS容器内部有一个文件夹用于存放站点的 favicon，这个文件夹并没有被持久化，所以如果重新创建容器，就会丢失这些favicon。需要等待12个小时才会重新刷新。我们可以创建一个volume来持久化这些favicon。修改后的docker-compose.yml如下（部分service省去）：
 
 ```dockerfile
-  
 version: "3"
 services:
   service.rss:
@@ -75,7 +74,7 @@ volumes:
   feed-icons:
 ```
 
-再次执行`sudo docker-compose up -d`来更新容器。部署完容器后还需要安装nginx来反代服务。nginx的配置文件可以参考文档：[配置 HTTPS](https://ttrss.henry.wang/zh/) 。
+再次执行`sudo docker-compose up -d`来更新容器。部署完容器后还需要安装nginx来反代服务。nginx的配置文件可以参考文档：[配置 HTTPS](https://ttrss.henry.wang/zh/#%E9%85%8D%E7%BD%AE-https) 。
 
 ### 部署 RSSHub 
 
