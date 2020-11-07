@@ -36,7 +36,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2018/11/11/5be7d80a4ef45.png">
 <meta property="article:published_time" content="2018-10-25T11:02:52.000Z">
-<meta property="article:modified_time" content="2020-11-07T09:26:22.771Z">
+<meta property="article:modified_time" content="2020-11-07T13:42:18.309Z">
 <meta property="article:author" content="kkren">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2018/11/11/5be7d80a4ef45.png">
@@ -214,7 +214,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -357,29 +357,25 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>在编译的过程中，参考了 <span class="exturl" data-url="aHR0cHM6Ly9pbXF1cXUuY29tL3Bvc3QvZW5hYmxlLXRscy0xLTMuaHRtbA==">imququ<i class="fa fa-external-link-alt"></i></span> 等大佬的资料，在最新的 mainline Nginx 之上添加了 ngx_brotli 模块并使用最新的 OpenSSL 编译。<a id="more"></a></p>
-<h2 id="编译-Nginx"><a href="#编译-Nginx" class="headerlink" title="编译 Nginx"></a>编译 Nginx</h2><p>我服务器的环境是  debian 9，在编译前先安装依赖。</p>
+<h2 id="编译-Nginx">编译 Nginx</h2>
+<p>我服务器的环境是  debian 9，在编译前先安装依赖。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install build-essential libpcre3 libpcre3-dev zlib1g-dev unzip git</span><br></pre></td></tr></table></figure>
-
 <p>然后下载并解压 Nginx 和其他模块</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Nginx</span></span><br><span class="line">wget -c http://nginx.org/download/nginx-1.15.6.tar.gz</span><br><span class="line">tar zxf nginx-1.15.6.tar.gz</span><br><span class="line"><span class="comment"># OpenSSL</span></span><br><span class="line">wget -c  https://github.com/openssl/openssl/archive/OpenSSL_1_1_1.tar.gz</span><br><span class="line">tar xzf OpenSSL_1_1_1.tar.gz</span><br><span class="line">mv openssl-OpenSSL_1_1_1 openssl</span><br><span class="line"><span class="comment"># ngx_brotli</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/google/ngx_brotli.git</span><br><span class="line"><span class="built_in">cd</span> ngx_brotli</span><br><span class="line">git submodule update --init</span><br><span class="line"><span class="built_in">cd</span> ../</span><br></pre></td></tr></table></figure>
-
 <p>开始编译</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd nginx-1.15.6</span><br><span class="line">./configure --add-module=../ngx_brotli --with-openssl=../openssl --with-openssl-opt=&#x27;enable-tls1_3&#x27; --with-http_v2_module --with-http_ssl_module --with-http_gzip_static_module</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
-
 <p>如果需要升级 Nginx ，不要执行 <code>sudo make install</code> ，执行下面的命令。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/local/nginx/sbin/nginx/usr/local/nginx/sbin/nginx.old</span><br><span class="line"><span class="meta">#</span><span class="bash"> 备份 Nginx</span></span><br><span class="line">cp -f objs/nginx/usr/local/nginx/sbin/nginx</span><br><span class="line">nginx -t</span><br><span class="line"><span class="meta">#</span><span class="bash"> 解决上一条命令出现的问题后继续 </span></span><br><span class="line">make upgrade</span><br></pre></td></tr></table></figure>
-
-<h2 id="配置-Nginx"><a href="#配置-Nginx" class="headerlink" title="配置 Nginx"></a>配置 Nginx</h2><p>安装后 Nginx 和配置在 <code>/usr/local/nginx/</code> 下面。首先打开 <code>conf/nginx.conf</code></p>
+<h2 id="配置-Nginx">配置 Nginx</h2>
+<p>安装后 Nginx 和配置在 <code>/usr/local/nginx/</code> 下面。首先打开 <code>conf/nginx.conf</code></p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sendfile</span>        <span class="literal">on</span>;</span><br><span class="line"><span class="attribute">tcp_nopush</span>     	<span class="literal">on</span>;</span><br><span class="line"><span class="attribute">tcp_nodelay</span>    	<span class="literal">on</span>;</span><br></pre></td></tr></table></figure>
-
 <p>这三行，原来注释掉的改成 on 。</p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">gzip</span>			<span class="literal">on</span>;</span><br><span class="line"><span class="attribute">gzip_vary</span>     	<span class="literal">on</span>;</span><br><span class="line"><span class="attribute">gzip_comp_level</span>	<span class="number">6</span>;</span><br><span class="line"><span class="attribute">gzip_buffers</span>   	<span class="number">16</span> <span class="number">8k</span>;</span><br><span class="line"><span class="attribute">gzip_min_length</span>	<span class="number">1000</span>;</span><br><span class="line"><span class="attribute">gzip_proxied</span>   	any;</span><br><span class="line"><span class="attribute">gzip_disable</span>   	<span class="string">&quot;msie6&quot;</span>;</span><br><span class="line"><span class="attribute">gzip_http_version</span>	<span class="number">1</span>.<span class="number">0</span>;</span><br><span class="line"><span class="attribute">gzip_types</span>    	text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript application/javascript image/svg+xml;</span><br><span class="line">    </span><br><span class="line"><span class="attribute">brotli</span>			<span class="literal">on</span>;</span><br><span class="line"><span class="attribute">brotli_comp_level</span>	<span class="number">6</span>;</span><br><span class="line"><span class="attribute">brotli_types</span>	text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript application/javascript image/svg+xml;  </span><br></pre></td></tr></table></figure>
-
 <p>启用 gzip 和 brotli 压缩。然后创建一个网站的配置。</p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ssl_protocols</span>	TLSv1.<span class="number">3</span> TLSv1.<span class="number">2</span>;</span><br><span class="line"><span class="attribute">ssl_ciphers</span>		TLS13-AES-<span class="number">256</span>-GCM-SHA384:TLS13-CHACHA20-POLY1305-SHA256:TLS13-AES-<span class="number">128</span>-GCM-SHA256:TLS13-AES-<span class="number">128</span>-CCM-<span class="number">8</span>-SHA256:TLS13-AES-<span class="number">128</span>-CCM-SHA256:EECDH+CHACHA20:EECDH+CHACHA20-draft:EECDH+ECDSA+AES128:EECDH+aRSA+AES128:RSA+AES128:EECDH+ECDSA+AES256:EECDH+aRSA+AES256:RSA+AES256:EECDH;</span><br><span class="line"><span class="attribute">add_header</span>		Strict-Transport-Security <span class="string">&quot;max-age=63072000; includeSubDomains; preload&quot;</span>;</span><br><span class="line"><span class="attribute">add_header</span>		X-Frame-Options deny;</span><br><span class="line"><span class="attribute">add_header</span>		X-Content-Type-Options nosniff;</span><br></pre></td></tr></table></figure>
-
 <p>重点就是加密算法的选择和 HSTS 。</p>
-<h2 id="其他的优化"><a href="#其他的优化" class="headerlink" title="其他的优化"></a>其他的优化</h2><p>博客的所有文件都会用 service worker 永久缓存在读者的电脑上。直接安装 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3pvdW1pYW9qaWFuZy9oZXhvLXNlcnZpY2Utd29ya2Vy">hexo-service-worker<i class="fa fa-external-link-alt"></i></span> 插件即可。</p>
+<h2 id="其他的优化">其他的优化</h2>
+<p>博客的所有文件都会用 service worker 永久缓存在读者的电脑上。直接安装 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3pvdW1pYW9qaWFuZy9oZXhvLXNlcnZpY2Utd29ya2Vy">hexo-service-worker<i class="fa fa-external-link-alt"></i></span> 插件即可。</p>
 <p>博客的图片放在 <span class="exturl" data-url="aHR0cHM6Ly9zbS5tcy8=">sm.ms<i class="fa fa-external-link-alt"></i></span> 图床上，然后使用 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1JvYmluLWZyb250L2hleG8tbGF6eWxvYWQ=">hexo-lazyload<i class="fa fa-external-link-alt"></i></span> 制作加载时的缩略图。放上一张首次加载首页的耗时图。<img data-src="https://i.loli.net/2018/11/11/5be7d80a4ef45.png" alt="加载图"></p>
 
     </div>
@@ -484,13 +480,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">12k</span>
+    <span title="站点总字数">16k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">11 分钟</span>
+    <span title="站点阅读时长">14 分钟</span>
   </span>
 </div>
   <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span> 强力驱动
