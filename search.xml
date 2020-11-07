@@ -1,27 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Windows 字体渲染优化</title>
-    <url>/2019/03/improve-windows-font-rendering/</url>
-    <content><![CDATA[<p>从 2k 屏的 Surface book 换到 24 寸的 1080p Dell 屏，Windows 默认的字体渲染几乎不能忍。因为我很穷，买不起高分辨率的显示器，只好研究一些奇怪的方式来优化这电脑的使用体验。<a id="more"></a></p>
-<h2 id="noMeiryoUI"><a href="#noMeiryoUI" class="headerlink" title="noMeiryoUI"></a>noMeiryoUI</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1RhdHN1LXN5by9ub01laXJ5b1VJLw==">noMeiryoUI<i class="fa fa-external-link-alt"></i></span> 是我第一个尝试的方案。它可以在不修改系统文件的前提下修改系统的字体。按照网上的推荐，我将字体改成了 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2JlNWludmlzL1NhcmFzYS1Hb3RoaWM=">更纱黑体<i class="fa fa-external-link-alt"></i></span>。效果还是有一点的，但是 Windows 字体最大的问题 —— 笔画的锯齿非常明显，并没有得到改善。</p>
-<h2 id="Mactype"><a href="#Mactype" class="headerlink" title="Mactype"></a>Mactype</h2><p>在沉寂了许久以后，最新的 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Nub3dpZTIwMDAvbWFjdHlwZS9yZWxlYXNlcy90YWcvMjAxOC4xLWJldGE1">MacType 2018.1-beta5<i class="fa fa-external-link-alt"></i></span> 已经大大改善了兼容性问题。现在 Mactype 已经可以支持包括 Chrome 在内的大多数 DirectWrite 程序。</p>
-<p><img data-src="https://i.loli.net/2019/03/17/5c8e515376ea6.png" alt="Snipaste_2019-03-17_21-52-33.png"></p>
-<p>Mactype 的加载方式，我选择的服务加载。第一次使用的时候可以使用托盘加载，没有问题再切换成其他模式。使用托盘加载时我有时会遇到 Chrome 不加载 Mactype 的问题，不知道是不是 bug。</p>
-<p>Mactype 的配置推荐 <span class="exturl" data-url="aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vSmFtZXNpdHMvNmE1OGExYjA4ZDVjZDA5YTk0YTAyZjMwZGRhZjBlMTM=">James 大佬<i class="fa fa-external-link-alt"></i></span> 的。我在他的配置上又做了一些修改。从 L324 到 L282 我全部注释了，因为加载这些进程在我这里没有遇到什么奇怪的问题，而且文件管理器毕竟还是经常要用到的。我也没有把 Chrome 中的雅黑替换成思源黑体，因为我也没有遇到奇怪的 bug。然后，在 Chrome 中用 XStyle 之类的插件加载这个 <span class="exturl" data-url="aHR0cHM6Ly91c2Vyc3R5bGVzLm9yZy9zdHlsZXMvMTU5NTQ5L3RoZW1l">CSS<i class="fa fa-external-link-alt"></i></span>。然后，[ExcludeSub] 中加入了 origin 和 uplay 的进程，这两个程序替换字体后图标都变成了方框。</p>
-<h3 id="Exclude-呢？这个配置有什么用？"><a href="#Exclude-呢？这个配置有什么用？" class="headerlink" title="[Exclude] 呢？这个配置有什么用？"></a>[Exclude] 呢？这个配置有什么用？</h3><p>答案就是没有用，作者在 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Nub3dpZTIwMDAvbWFjdHlwZS9pc3N1ZXMvMzMyI2lzc3VlY29tbWVudC0zMTM1NzI3MDY=">Issue<i class="fa fa-external-link-alt"></i></span> 中解释过了。</p>
-<blockquote>
-<p>[Exclude] - does not exist.</p>
-</blockquote>
-<h3 id="许多配置不生效？"><a href="#许多配置不生效？" class="headerlink" title="许多配置不生效？"></a>许多配置不生效？</h3><p>很有可能是文件编码的问题。从 GitHub 上下载的文件默认是 UTF-8 编码，但是 Mactype 识别的是 GB 2312 编码。需要你自己用文本编辑器转换一下。</p>
-<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p><img data-src="https://i.loli.net/2019/03/17/5c8e567035bd6.png" alt="Snipaste_2019-03-17_22-15-04.png"></p>
-<p>Mactype 的渲染策略大概是，当分辨率不足以清晰的渲染字体的时候，用一团灰色的东西来渲染对应的笔画，说的简单点就是抗锯齿。对于天天看中文的人来说，不用看清每一个笔画就能看懂对应的字，而且这应该是分辨率不足的情况下最大程度模仿印刷效果的方式，比微软选择的 Hinting 好很多（大概）。</p>
-]]></content>
-      <tags>
-        <tag>技术</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>XPS 15 杀手？ - Dell Inspiron 7591 体验报告 by kotomei</title>
     <url>/2019/08/Dell-Inspiron-7591-review/</url>
     <content><![CDATA[<p>谈起 Dell，不少人想到的应该都是被称为超极本标杆的 XPS 系列。但其高贵的售价，只能让像我这样的穷人看着流口水。但在今年的 ComputeX 上，Dell 发布了一款被称作为穷人版 XPS 15 的 Inspiron 7590 ，对我来说终于找到了一款在各方面都没有明显短板的同时还「穷人友好」的笔记本。在准备入手时发现京东上 7590 的换壳减价版 7951 正在秒杀促销，Google 一番后发现二者除外壳材质外几乎毫无差别。于是为了钱包能更轻松些，我选择了 7951。事后证明这次痛快出手是个正确的决定。 <a id="more"></a><br><img data-src="https://i.loli.net/2019/07/09/5d236cb3c955866972.jpg" alt="Banner"></p>
@@ -90,6 +69,27 @@
 <p>本文最初发表于 Telegram 上的体验测评频道 <span class="exturl" data-url="aHR0cHM6Ly90Lm1lL3RzdUJlbmNoLzg4OA==">@tsuBench<i class="fa fa-external-link-alt"></i></span> 并以 CC 4.0-BY-NC-SA 方式分享。</p>
 <p>tsuBench © 2019</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Windows 字体渲染优化</title>
+    <url>/2019/03/improve-windows-font-rendering/</url>
+    <content><![CDATA[<p>从 2k 屏的 Surface book 换到 24 寸的 1080p Dell 屏，Windows 默认的字体渲染几乎不能忍。因为我很穷，买不起高分辨率的显示器，只好研究一些奇怪的方式来优化这电脑的使用体验。<a id="more"></a></p>
+<h2 id="noMeiryoUI"><a href="#noMeiryoUI" class="headerlink" title="noMeiryoUI"></a>noMeiryoUI</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1RhdHN1LXN5by9ub01laXJ5b1VJLw==">noMeiryoUI<i class="fa fa-external-link-alt"></i></span> 是我第一个尝试的方案。它可以在不修改系统文件的前提下修改系统的字体。按照网上的推荐，我将字体改成了 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2JlNWludmlzL1NhcmFzYS1Hb3RoaWM=">更纱黑体<i class="fa fa-external-link-alt"></i></span>。效果还是有一点的，但是 Windows 字体最大的问题 —— 笔画的锯齿非常明显，并没有得到改善。</p>
+<h2 id="Mactype"><a href="#Mactype" class="headerlink" title="Mactype"></a>Mactype</h2><p>在沉寂了许久以后，最新的 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Nub3dpZTIwMDAvbWFjdHlwZS9yZWxlYXNlcy90YWcvMjAxOC4xLWJldGE1">MacType 2018.1-beta5<i class="fa fa-external-link-alt"></i></span> 已经大大改善了兼容性问题。现在 Mactype 已经可以支持包括 Chrome 在内的大多数 DirectWrite 程序。</p>
+<p><img data-src="https://i.loli.net/2019/03/17/5c8e515376ea6.png" alt="Snipaste_2019-03-17_21-52-33.png"></p>
+<p>Mactype 的加载方式，我选择的服务加载。第一次使用的时候可以使用托盘加载，没有问题再切换成其他模式。使用托盘加载时我有时会遇到 Chrome 不加载 Mactype 的问题，不知道是不是 bug。</p>
+<p>Mactype 的配置推荐 <span class="exturl" data-url="aHR0cHM6Ly9naXN0LmdpdGh1Yi5jb20vSmFtZXNpdHMvNmE1OGExYjA4ZDVjZDA5YTk0YTAyZjMwZGRhZjBlMTM=">James 大佬<i class="fa fa-external-link-alt"></i></span> 的。我在他的配置上又做了一些修改。从 L324 到 L282 我全部注释了，因为加载这些进程在我这里没有遇到什么奇怪的问题，而且文件管理器毕竟还是经常要用到的。我也没有把 Chrome 中的雅黑替换成思源黑体，因为我也没有遇到奇怪的 bug。然后，在 Chrome 中用 XStyle 之类的插件加载这个 <span class="exturl" data-url="aHR0cHM6Ly91c2Vyc3R5bGVzLm9yZy9zdHlsZXMvMTU5NTQ5L3RoZW1l">CSS<i class="fa fa-external-link-alt"></i></span>。然后，[ExcludeSub] 中加入了 origin 和 uplay 的进程，这两个程序替换字体后图标都变成了方框。</p>
+<h3 id="Exclude-呢？这个配置有什么用？"><a href="#Exclude-呢？这个配置有什么用？" class="headerlink" title="[Exclude] 呢？这个配置有什么用？"></a>[Exclude] 呢？这个配置有什么用？</h3><p>答案就是没有用，作者在 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Nub3dpZTIwMDAvbWFjdHlwZS9pc3N1ZXMvMzMyI2lzc3VlY29tbWVudC0zMTM1NzI3MDY=">Issue<i class="fa fa-external-link-alt"></i></span> 中解释过了。</p>
+<blockquote>
+<p>[Exclude] - does not exist.</p>
+</blockquote>
+<h3 id="许多配置不生效？"><a href="#许多配置不生效？" class="headerlink" title="许多配置不生效？"></a>许多配置不生效？</h3><p>很有可能是文件编码的问题。从 GitHub 上下载的文件默认是 UTF-8 编码，但是 Mactype 识别的是 GB 2312 编码。需要你自己用文本编辑器转换一下。</p>
+<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p><img data-src="https://i.loli.net/2019/03/17/5c8e567035bd6.png" alt="Snipaste_2019-03-17_22-15-04.png"></p>
+<p>Mactype 的渲染策略大概是，当分辨率不足以清晰的渲染字体的时候，用一团灰色的东西来渲染对应的笔画，说的简单点就是抗锯齿。对于天天看中文的人来说，不用看清每一个笔画就能看懂对应的字，而且这应该是分辨率不足的情况下最大程度模仿印刷效果的方式，比微软选择的 Hinting 好很多（大概）。</p>
+]]></content>
+      <tags>
+        <tag>技术</tag>
+      </tags>
   </entry>
   <entry>
     <title>Hello World</title>
