@@ -100,3 +100,8 @@ symbols_count_time:
   
 filter_optimize:
   enable: false
+
+markdown:
+  plugins:
+    - markdown-it-footnote
+    - markdown-it-abbr
