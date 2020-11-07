@@ -7,10 +7,11 @@
 <meta name="generator" content="Hexo 5.2.0">
 
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+  <link rel="manifest" href="/images/site.webmanifest">
   <meta http-equiv="Cache-Control" content="no-transform">
   <meta http-equiv="Cache-Control" content="no-siteapp">
   <meta name="google-site-verification" content="vquFCjMxdKDUwHpzOfQUCTleb6yxytY87HpT4_MUI4k">
@@ -37,7 +38,7 @@
 <meta property="og:image" content="https://i.loli.net/2020/11/07/L9k5qO4uXletGgf.png">
 <meta property="og:image" content="https://i.loli.net/2020/11/07/XIwMKuGlr7ytWhY.png">
 <meta property="article:published_time" content="2020-11-07T09:24:44.000Z">
-<meta property="article:modified_time" content="2020-11-07T14:25:42.845Z">
+<meta property="article:modified_time" content="2020-11-07T14:48:42.629Z">
 <meta property="article:author" content="kkren">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://i.loli.net/2020/11/07/L9k5qO4uXletGgf.png">
@@ -339,7 +340,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.3k</span>
+      <span>3.2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -361,10 +362,55 @@
 <a id="more"></a>
 <h2 id="部署">部署</h2>
 <p>我使用的服务器是 <abbr title="Amazon web services">AWS</abbr> 位于俄勒冈的 lightsail 服务器，1 核 1g，Debian 10 系统。部署 <abbr title="Tiny Tiny RSS">TTRSS</abbr> 可以直接用 <a target="_blank" rel="noopener" href="https://github.com/HenryQW/Awesome-TTRSS">Awesome-<abbr title="Tiny Tiny RSS">TTRSS</abbr></a> 这个项目提供的 docker-compose 文件。首先安装好 docker 和 docker-compose。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/HenryQW/Awesome-TTRSS/raw/master/docker-compose.yml</span><br><span class="line">sudo docker-compose up -d</span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://github.com/HenryQW/Awesome-TTRSS/raw/master/docker-compose.yml
+<span class="token function">sudo</span> docker-compose up -d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>需要注意的是这个 docker-compose.yml 文件目前有一点小问题。用于处理全文输出的 mercury 容器是无法连上外部网络的。因为在下面的 networks 中，service-only 这个 network 被设置为 internal<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>。将 <code>internal: true</code> 删除即可。</p>
 <p>另外，TTRSS 容器内部有一个文件夹用于存放站点的 favicon，这个文件夹并没有被持久化，所以如果重新创建容器，就会丢失这些 favicon。需要等待 12 个小时才会重新刷新。我们可以创建一个 volume 来持久化这些 favicon。修改后的 docker-compose.yml 如下（部分 service 省去）：</p>
-<figure class="highlight dockerfile"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">version: <span class="string">"3"</span></span><br><span class="line">services:</span><br><span class="line">  service.rss:</span><br><span class="line">    image: wangqiru/ttrss:latest</span><br><span class="line">    container_name: ttrss</span><br><span class="line">    ports:</span><br><span class="line">      - <span class="number">181</span>:<span class="number">80</span></span><br><span class="line">    environment:</span><br><span class="line">      - SELF_URL_PATH=http://localhost:<span class="number">181</span>/ <span class="comment"># please change to your own domain</span></span><br><span class="line">      - DB_PASS=ttrss <span class="comment"># use the same password defined in `database.postgres`</span></span><br><span class="line">    volumes:</span><br><span class="line">      - feed-icons:/var/www/feed-icons/</span><br><span class="line">    networks:</span><br><span class="line">      - public_access</span><br><span class="line">      - service_only</span><br><span class="line">      - database_only</span><br><span class="line">    stdin_open: true</span><br><span class="line">    tty: true</span><br><span class="line">    restart: always</span><br><span class="line"></span><br><span class="line">  service.mercury: <span class="comment"># set Mercury Parser API endpoint to `service.mercury:3000` on TTRSS plugin setting page</span></span><br><span class="line">    image: wangqiru/mercury-parser-api:latest</span><br><span class="line">    container_name: mercury</span><br><span class="line">    networks:</span><br><span class="line">      - service_only</span><br><span class="line">    restart: always</span><br><span class="line"></span><br><span class="line">  database.postgres:</span><br><span class="line">    image: postgres:<span class="number">13</span>-alpine</span><br><span class="line">    container_name: postgres</span><br><span class="line">    environment:</span><br><span class="line">      - POSTGRES_PASSWORD=ttrss <span class="comment"># feel free to change the password</span></span><br><span class="line">    volumes:</span><br><span class="line">      - ~/postgres/data/:/var/lib/postgresql/data <span class="comment"># persist postgres data to ~/postgres/data/ on the host</span></span><br><span class="line">    networks:</span><br><span class="line">      - database_only</span><br><span class="line">    restart: always</span><br><span class="line"></span><br><span class="line">networks:</span><br><span class="line">  public_access: <span class="comment"># Provide the access for ttrss UI</span></span><br><span class="line">  service_only: <span class="comment"># Provide the communication network between services only</span></span><br><span class="line">  database_only: <span class="comment"># Provide the communication between ttrss and database only</span></span><br><span class="line">    internal: true</span><br><span class="line">volumes:</span><br><span class="line">  feed-icons:</span><br></pre></td></tr></tbody></table></figure>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">version</span><span class="token punctuation">:</span> <span class="token string">"3"</span>
+<span class="token key atrule">services</span><span class="token punctuation">:</span>
+  <span class="token key atrule">service.rss</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> wangqiru/ttrss<span class="token punctuation">:</span>latest
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> ttrss
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> 181<span class="token punctuation">:</span><span class="token number">80</span>
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> SELF_URL_PATH=http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>181/ <span class="token comment"># please change to your own domain</span>
+      <span class="token punctuation">-</span> DB_PASS=ttrss <span class="token comment"># use the same password defined in `database.postgres`</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> feed<span class="token punctuation">-</span>icons<span class="token punctuation">:</span>/var/www/feed<span class="token punctuation">-</span>icons/
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> public_access
+      <span class="token punctuation">-</span> service_only
+      <span class="token punctuation">-</span> database_only
+    <span class="token key atrule">stdin_open</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    <span class="token key atrule">tty</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+
+  <span class="token key atrule">service.mercury</span><span class="token punctuation">:</span> <span class="token comment"># set Mercury Parser API endpoint to `service.mercury:3000` on TTRSS plugin setting page</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> wangqiru/mercury<span class="token punctuation">-</span>parser<span class="token punctuation">-</span>api<span class="token punctuation">:</span>latest
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> mercury
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> service_only
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+
+  <span class="token key atrule">database.postgres</span><span class="token punctuation">:</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> postgres<span class="token punctuation">:</span>13<span class="token punctuation">-</span>alpine
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> postgres
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> POSTGRES_PASSWORD=ttrss <span class="token comment"># feel free to change the password</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> ~/postgres/data/<span class="token punctuation">:</span>/var/lib/postgresql/data <span class="token comment"># persist postgres data to ~/postgres/data/ on the host</span>
+    <span class="token key atrule">networks</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> database_only
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span> always
+
+<span class="token key atrule">networks</span><span class="token punctuation">:</span>
+  <span class="token key atrule">public_access</span><span class="token punctuation">:</span> <span class="token comment"># Provide the access for ttrss UI</span>
+  <span class="token key atrule">service_only</span><span class="token punctuation">:</span> <span class="token comment"># Provide the communication network between services only</span>
+  <span class="token key atrule">database_only</span><span class="token punctuation">:</span> <span class="token comment"># Provide the communication between ttrss and database only</span>
+    <span class="token key atrule">internal</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+<span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+  feed<span class="token punctuation">-</span>icons<span class="token punctuation">:</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>再次执行 <code>sudo docker-compose up -d</code> 来更新容器。部署完容器后还需要安装 nginx 来反代服务。nginx 的配置文件可以参考文档：<span class="exturl" data-url="aHR0cHM6Ly90dHJzcy5oZW5yeS53YW5nL3poLyMlRTklODUlOEQlRTclQkQlQUUtaHR0cHM=">配置 HTTPS<i class="fa fa-external-link-alt"></i></span> 。</p>
 <h3 id="部署-RSSHub">部署 RSSHub</h3>
 <p>是一个开源、简单易用、易于扩展的 RSS 生成器，可以给任何奇奇怪怪的内容生成 RSS 订阅源。虽然 RSSHub 有官方提供的服务，但是几乎无法爬取任何反爬严格的站点。自建 RSSHub 依然可以使用 docker-compose。参考官方的<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnJzc2h1Yi5hcHAvaW5zdGFsbC8jZG9ja2VyLWNvbXBvc2UtYnUtc2h1">部署文档<i class="fa fa-external-link-alt"></i></span>，可以快速启动一个 RSSHub 容器。注意，互联网 <sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> 上可能有人爬取自建的 RSSHub。推荐不将 RSSHub 暴露到公网，或者使用 http basic auth 来保护。TTRSS 支持在订阅时添加 http basic auth 的用户名与密码。</p>
@@ -373,7 +419,7 @@
 <h4 id="mercury">mercury</h4>
 <p>mercury 是一个用于全文输出订阅源的插件，使用下来效果还是很准确的。之前我们启动的容器中已经包含了 mercury 的容器。接下来只需要在<code>偏好设置 - mercury_fulltext</code> 启用插件即可。然后在<code>订阅源 - mercury fulltext settings</code> 中，填写 api 地址为 <code>service.mercury:3000</code>。还可以设置特定订阅源自动在收取时转换全文，在<code>编辑订阅源-插件</code>中启用即可。</p>
 <h4 id="fever">fever</h4>
-<p>许多第三方客户端都需要 fever api 的支持。在<code>偏好设置 - Fever Emulation </code>中设置密码即可启用 fever。此密码可以与账户密码相同也可以不同。注意使用 fever api 不能编辑、添加订阅源，也不支持分类嵌套等功能。</p>
+<p>许多第三方客户端都需要 fever api 的支持。在<code>偏好设置 - Fever Emulation</code> 中设置密码即可启用 fever。此密码可以与账户密码相同也可以不同。注意使用 fever api 不能编辑、添加订阅源，也不支持分类嵌套等功能。</p>
 <h2 id="订阅源">订阅源</h2>
 <p>我订阅的大部分订阅源都是来自于个人博客，基本上都直接提供订阅源并且全文输出。但是有部分国内的社区不提供订阅源，或者需要进一步自定义订阅源。除了使用 RSSHub 以外，另一个工具是 <span class="exturl" data-url="aHR0cHM6Ly9mZWVkNDMuY29tLw==">feed43<i class="fa fa-external-link-alt"></i></span>。通过这个网站提供的查找与替换工具，可以很轻松制作订阅源。我给触乐网的<span class="exturl" data-url="aHR0cDovL3d3dy5jaHVhcHAuY29tL3RhZy9pbmRleC9pZC8yMDM2OS5odG1s">触乐夜话<i class="fa fa-external-link-alt"></i></span>栏目制作了一个<span class="exturl" data-url="aHR0cHM6Ly9mZWVkNDMuY29tLzQ0NTg4ODIzMjIyNzQ0MDQueG1s">订阅源<i class="fa fa-external-link-alt"></i></span>。可惜 feed43 没法很方便的全文输出，但是用 TTRSS 的 mercury 插件全文输出的效果很不错。</p>
 <h2 id="客户端">客户端</h2>
@@ -555,7 +601,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">14 分钟</span>
+    <span title="站点阅读时长">13 分钟</span>
   </span>
 </div>
   <div class="powered-by">由 <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span> 强力驱动
