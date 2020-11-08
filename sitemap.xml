@@ -2,58 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.kkren.me/2019/08/Dell-Inspiron-7591-review/</loc>
-    
-    <lastmod>2020-11-07</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.kkren.me/2019/03/improve-windows-font-rendering/</loc>
-    
-    <lastmod>2020-11-07</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.kkren.me/2018/05/hello-world/</loc>
-    
-    <lastmod>2020-11-07</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.kkren.me/2018/05/transmission-in-linux/</loc>
-    
-    <lastmod>2020-11-07</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.kkren.me/2018/12/hexo-with-travis/</loc>
-    
-    <lastmod>2020-11-07</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.kkren.me/2018/10/nginx-configuration/</loc>
     
-    <lastmod>2020-11-07</lastmod>
+    <lastmod>2020-11-08</lastmod>
     
   </url>
   
   <url>
     <loc>https://blog.kkren.me/2020/11/selfhost-ttrss/</loc>
     
-    <lastmod>2020-11-07</lastmod>
+    <lastmod>2020-11-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.kkren.me/2019/08/Dell-Inspiron-7591-review/</loc>
+    
+    <lastmod>2020-11-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.kkren.me/2019/03/improve-windows-font-rendering/</loc>
+    
+    <lastmod>2020-11-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.kkren.me/2018/05/hello-world/</loc>
+    
+    <lastmod>2020-11-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.kkren.me/2018/05/transmission-in-linux/</loc>
+    
+    <lastmod>2020-11-08</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.kkren.me/2018/12/hexo-with-travis/</loc>
+    
+    <lastmod>2020-11-08</lastmod>
     
   </url>
   
 
   <url>
     <loc>https://blog.kkren.me/</loc>
-    <lastmod>2020-11-07</lastmod>
+    <lastmod>2020-11-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -61,7 +61,7 @@
   
   <url>
     <loc>https://blog.kkren.me/tags/%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2020-11-07</lastmod>
+    <lastmod>2020-11-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
