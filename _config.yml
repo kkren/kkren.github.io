@@ -107,3 +107,6 @@ markdown:
   plugins:
     - markdown-it-footnote
     - markdown-it-abbr
+
+feed:
+  icon: images/avatar.png
