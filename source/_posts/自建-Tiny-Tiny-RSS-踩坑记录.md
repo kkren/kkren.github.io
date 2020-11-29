@@ -104,9 +104,11 @@ mercury是一个用于全文输出订阅源的插件，使用下来效果还是�
 
 | 名称                                 | api   | 授权 |
 | ------------------------------------ | ----- | ---- |
-| [Reader](https://www.reederapp.com/) | Fever | 收费 |
+| [Reeeder](https://www.reederapp.com/) | Fever | 收费 |
 
-我没苹果设备，但是Reader看起来很好看。
+我没苹果设备，但是Reeder看起来很好看。
+
+<img src="https://i.loli.net/2020/11/29/Ru5PE2DBkCwz6tG.png" alt="Reeder-screenshot" style="zoom:50%;" />
 
 ### Android
 
