@@ -2,7 +2,7 @@
 title: XPS 15 杀手？ - Dell Inspiron 7591 体验报告 by kotomei
 date: 2019-08-03 10:37:32
 tags:
-urlname: Dell-Inspiron-7591-review
+urlname: dell-inspiron-7591-review
 author: kotomei
 ---
 
